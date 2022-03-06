@@ -47,12 +47,12 @@ namespace Tahaluf.UL.Infra.Repository
             var newlibrary = _dbContext.Connection.ExecuteAsync("LIBRARY_PACKAGE.DELETELIBRARY", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public Libraryul GetLibraryByName(string name)
+        public List<Libraryul> GetLibraryByName(string name)
         {
             var p = new DynamicParameters();
             p.Add("NAME", name, dbType: DbType.String, direction: ParameterDirection.Input);
-            var newlibrary = _dbContext.Connection.QueryFirstOrDefault<Libraryul>("LIBRARY_PACKAGE.getlibrarybyname", p, commandType: CommandType.StoredProcedure);
-            return newlibrary;
+            var library = _dbContext.Connection.Query<Libraryul>("LIBRARY_PACKAGE.getlibrarybyname", p, commandType: CommandType.StoredProcedure);
+            return library.ToList();
         }
 
     }

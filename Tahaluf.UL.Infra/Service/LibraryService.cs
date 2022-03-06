@@ -33,7 +33,7 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _libraryRepository.UpdateLibrary(library);
         }
-        public Libraryul GetLibraryByName(string name)
+        public List<Libraryul> GetLibraryByName(string name)
         {
             return _libraryRepository.GetLibraryByName(name);
 

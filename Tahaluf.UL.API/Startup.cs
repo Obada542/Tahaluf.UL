@@ -42,7 +42,10 @@ namespace Tahaluf.UL.API
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ILibraryService, LibraryService>();
             services.AddScoped<ILibraryRepository, LibraryRepository>();
-
+            services.AddScoped<ILoaningService, LoaningService>();
+            services.AddScoped<ILoaningRepository, LoaningRepository>();
+            services.AddScoped<IRatingService, RatingService>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

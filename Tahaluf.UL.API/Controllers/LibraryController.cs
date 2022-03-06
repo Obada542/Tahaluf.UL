@@ -23,7 +23,7 @@ namespace Tahaluf.UL.API.Controllers
         }
         [HttpGet]
         [Route("GetLibraries/{name}")]
-        public Libraryul GetLibraryByName(string name)
+        public List<Libraryul> GetLibraryByName(string name)
         {
             return _libraryService.GetLibraryByName(name);
         }

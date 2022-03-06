@@ -11,7 +11,7 @@ namespace Tahaluf.UL.Core.Repository
         bool CreateNewLibrary(Libraryul library);
         bool UpdateLibrary(Libraryul library);
         bool DeleteLibrary(int id);
-        Libraryul GetLibraryByName(string name);
+        List<Libraryul> GetLibraryByName(string name);
 
 
     }
