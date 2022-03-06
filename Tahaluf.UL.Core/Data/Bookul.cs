@@ -28,7 +28,7 @@ namespace Tahaluf.UL.Core.Data
         public string Image { get; set; }
         public int? Library_Id { get; set; }
         public string Category { get; set; }
-        [ForeignKey("LibraryId")]
+        [ForeignKey("Library_Id")]
         public virtual Libraryul Library { get; set; }
         public virtual ICollection<Commentul> Commentuls { get; set; }
         public virtual ICollection<Loaningul> Loaninguls { get; set; }

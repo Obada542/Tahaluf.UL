@@ -15,7 +15,7 @@ namespace Tahaluf.UL.Core.Data
         }
         [Key]
         public int Id { get; set; }
-        public string LibraryName { get; set; }
+        public string Library_Name { get; set; }
         public string Location { get; set; }
 
         public virtual ICollection<Bookul> Bookuls { get; set; }

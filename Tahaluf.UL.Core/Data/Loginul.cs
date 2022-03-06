@@ -23,8 +23,8 @@ namespace Tahaluf.UL.Core.Data
         public DateTime? Birthday { get; set; }
         public string Image { get; set; }
         public string Password { get; set; }
-        public int? RoleId { get; set; }
-        [ForeignKey("RoleId")]
+        public int? Role_Id { get; set; }
+        [ForeignKey("Role_Id")]
         public virtual Roleul Role { get; set; }
         public virtual ICollection<Accountantul> Accountantuls { get; set; }
         public virtual ICollection<Studentul> Studentuls { get; set; }

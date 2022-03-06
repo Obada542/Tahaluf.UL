@@ -19,10 +19,10 @@ namespace Tahaluf.UL.Core.Data
         }
         [Key]
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int? LoginId { get; set; }
-        [ForeignKey("LoginId")]
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public int? Login_Id { get; set; }
+        [ForeignKey("Login_Id")]
         public virtual Loginul Login { get; set; }
         public virtual ICollection<Commentul> Commentuls { get; set; }
         public virtual ICollection<Loaningul> Loaninguls { get; set; }

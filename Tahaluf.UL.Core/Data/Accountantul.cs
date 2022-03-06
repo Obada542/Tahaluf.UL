@@ -13,8 +13,8 @@ namespace Tahaluf.UL.Core.Data
         public int Id { get; set; }
         public float? Salary { get; set; }
         public string Address { get; set; }
-        public int? LoginId { get; set; }
-        [ForeignKey("LoginId")]
+        public int? Login_Id { get; set; }
+        [ForeignKey("Login_Id")]
         public virtual Loginul Login { get; set; }
     }
 }

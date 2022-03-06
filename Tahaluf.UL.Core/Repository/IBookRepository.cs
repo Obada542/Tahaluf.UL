@@ -11,6 +11,7 @@ namespace Tahaluf.UL.Core.Repository
         bool CreateNewBook(Bookul book);
         bool UpdateBook(Bookul book);
         bool DeleteBook(int id);
+        List<Bookul> SearchBook(string name);
 
     }
 }

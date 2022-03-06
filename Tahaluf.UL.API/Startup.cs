@@ -40,6 +40,8 @@ namespace Tahaluf.UL.API
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<ILibraryService, LibraryService>();
+            services.AddScoped<ILibraryRepository, LibraryRepository>();
 
             services.AddAuthentication(opt =>
             {

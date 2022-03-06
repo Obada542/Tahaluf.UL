@@ -30,5 +30,10 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _bookRepository.DeleteBook(id);
         }
+        public List<Bookul> SearchBook(string name)
+        {
+            return _bookRepository.SearchBook(name);
+
+        }
     }
 }

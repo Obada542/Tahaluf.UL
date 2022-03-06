@@ -21,6 +21,12 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.GetAllBooks();
         }
+        [HttpGet]
+        [Route("Search/{name}")]
+        public List<Bookul> SearchBook(string name)
+        {
+            return _bookService.SearchBook(name);
+        }
         [HttpPost]
         [Route("CreateBook")]
         public bool CreateNewBook([FromBody]Bookul book)

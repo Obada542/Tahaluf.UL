@@ -62,6 +62,13 @@ namespace Tahaluf.UL.Infra.Repository
             var deleteBook = _dbContext.Connection.ExecuteAsync("BOOKUL_PACKAGE.DELETEBOOK", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public List<Bookul> SearchBook(string name)
+        {
+            var p = new DynamicParameters();
+            p.Add("name", name, dbType: DbType.String, direction: ParameterDirection.Input);
+            var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.searchbook", p, commandType: CommandType.StoredProcedure);
+            return books.ToList();
+        }
 
     }
 }

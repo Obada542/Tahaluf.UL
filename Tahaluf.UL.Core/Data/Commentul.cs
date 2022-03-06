@@ -16,12 +16,12 @@ namespace Tahaluf.UL.Core.Data
         }
         [Key]
         public int Id { get; set; }
-        public string StudentComment { get; set; }
-        public int? BookId { get; set; }
-        public int? StudentId { get; set; }
-        [ForeignKey("BookId")]
+        public string Student_Comment { get; set; }
+        public int? Book_Id { get; set; }
+        public int? Student_Id { get; set; }
+        [ForeignKey("Book_Id")]
         public virtual Bookul Book { get; set; }
-        [ForeignKey("StudentId")]
+        [ForeignKey("Student_Id")]
         public virtual Studentul Student { get; set; }
         public virtual ICollection<Recommentul> Recommentuls { get; set; }
     }

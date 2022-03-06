@@ -12,15 +12,15 @@ namespace Tahaluf.UL.Core.Data
     {
         [Key]
         public int Id { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public DateTime? Start_Date { get; set; }
+        public DateTime? End_Date { get; set; }
         public string Isloaned { get; set; }
         public float? Fines { get; set; }
-        public int? BookId { get; set; }
-        public int? StudentId { get; set; }
-        [ForeignKey("BookId")]
+        public int? Book_Id { get; set; }
+        public int? Student_Id { get; set; }
+        [ForeignKey("Book_Id")]
         public virtual Bookul Book { get; set; }
-        [ForeignKey("StudentId")]
+        [ForeignKey("Student_Id")]
         public virtual Studentul Student { get; set; }
     }
 }
