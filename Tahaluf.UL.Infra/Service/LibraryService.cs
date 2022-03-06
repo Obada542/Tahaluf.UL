@@ -38,5 +38,10 @@ namespace Tahaluf.UL.Infra.Service
             return _libraryRepository.GetLibraryByName(name);
 
         }
+        public List<Libraryul> GetLibraryByLocation(string location)
+        {
+            return _libraryRepository.GetLibraryByLocation(location);
+        }
+
     }
 }

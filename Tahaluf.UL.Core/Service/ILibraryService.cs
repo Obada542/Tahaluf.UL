@@ -12,6 +12,8 @@ namespace Tahaluf.UL.Core.Service
         bool UpdateLibrary(Libraryul library);
         bool DeleteLibrary(int id);
         List<Libraryul> GetLibraryByName(string name);
+        List<Libraryul> GetLibraryByLocation(string location);
+
 
     }
 }

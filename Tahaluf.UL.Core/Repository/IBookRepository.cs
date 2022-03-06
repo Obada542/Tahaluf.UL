@@ -8,6 +8,7 @@ namespace Tahaluf.UL.Core.Repository
     public interface IBookRepository
     {
         List<Bookul> GetAllBooks();
+        List<Bookul> GetAllBooksByLibrary(string name);
         bool CreateNewBook(Bookul book);
         bool UpdateBook(Bookul book);
         bool DeleteBook(int id);

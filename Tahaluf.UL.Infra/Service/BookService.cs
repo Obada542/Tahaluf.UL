@@ -35,5 +35,9 @@ namespace Tahaluf.UL.Infra.Service
             return _bookRepository.SearchBook(name);
 
         }
+        public List<Bookul> GetAllBooksByLibrary(string name)
+        {
+            return _bookRepository.GetAllBooksByLibrary(name);
+        }
     }
 }

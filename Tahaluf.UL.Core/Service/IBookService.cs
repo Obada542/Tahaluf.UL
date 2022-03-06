@@ -8,6 +8,8 @@ namespace Tahaluf.UL.Core.Service
     public interface IBookService
     {
         List<Bookul> GetAllBooks();
+        List<Bookul> GetAllBooksByLibrary(string name);
+
         bool CreateNewBook(Bookul book);
         bool UpdateBook(Bookul book);
         bool DeleteBook(int id);

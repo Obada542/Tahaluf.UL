@@ -54,6 +54,13 @@ namespace Tahaluf.UL.Infra.Repository
             var library = _dbContext.Connection.Query<Libraryul>("LIBRARY_PACKAGE.getlibrarybyname", p, commandType: CommandType.StoredProcedure);
             return library.ToList();
         }
+        public List<Libraryul> GetLibraryByLocation(string location)
+        {
+            var p = new DynamicParameters();
+            p.Add("LOCA", location, dbType: DbType.String, direction: ParameterDirection.Input);
+            var library = _dbContext.Connection.Query<Libraryul>("LIBRARY_PACKAGE.getlibrarybylocation", p, commandType: CommandType.StoredProcedure);
+            return library.ToList();
+        }
 
     }
 }

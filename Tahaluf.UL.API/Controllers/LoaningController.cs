@@ -18,29 +18,29 @@ namespace Tahaluf.UL.API.Controllers
             this._loaningService = _loaningService;
         }
         [HttpGet]
-        public List<Loaningul> GetAllLoaning()
+        public List<Loaningul> GetAllBorrowings()
         {
-            return _loaningService.GetAllLoaning();
+            return _loaningService.GetAllBorrowings();
         }
         [HttpPost]
-        public string CreateLoanRequset([FromBody]Loaningul loaning)
+        public string CreateBorrowingRequset([FromBody]Loaningul loaning)
         {
-            return _loaningService.CreateLoanRequset(loaning);
+            return _loaningService.CreateBorrowingRequset(loaning);
         }
         [HttpPut]
-        public string UpdateLoanRequset([FromBody] Loaningul loaning)
+        public string UpdateBorrowingRequset([FromBody] Loaningul loaning)
         {
-            return _loaningService.UpdateLoanRequset(loaning);
+            return _loaningService.UpdateBorrowingRequset(loaning);
         }
         [HttpGet,Route("SearchInterval")]
-        public List<LoaningSearchDTO> GetAllLoaningByDates([FromBody]LoanSearchDatesDTO dates)
+        public List<LoaningSearchDTO> GetBorrowingsByDates([FromBody]LoanSearchDatesDTO dates)
         {
-            return _loaningService.GetAllLoaningByDates(dates);
+            return _loaningService.GetBorrowingsByDates(dates);
         }
-        [HttpGet,Route("StudentLoaning/{id}")]
-        public List<StudentLoaningDTO> GetStudentLoaning(int id)
+        [HttpGet,Route("StudentBorrowing/{id}")]
+        public List<StudentLoaningDTO> GetStudentBorrowing(int id)
         {
-            return _loaningService.GetStudentLoaning(id);
+            return _loaningService.GetStudentBorrowing(id);
         }
 
     }

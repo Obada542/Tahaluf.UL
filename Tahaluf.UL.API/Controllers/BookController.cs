@@ -45,5 +45,11 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.DeleteBook(id);
         }
+        [HttpGet]
+        [Route("SearchByLibrary/{name}")]
+        public List<Bookul> GetAllBooksByLibrary(string name)
+        {
+            return _bookService.GetAllBooksByLibrary(name);
+        }
     }
 }

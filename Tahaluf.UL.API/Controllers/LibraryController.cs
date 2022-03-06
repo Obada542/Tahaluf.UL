@@ -45,5 +45,11 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _libraryService.DeleteLibrary(id);
         }
+        [HttpGet]
+        [Route("LibrariesByLocation/{location}")]
+        public List<Libraryul> GetLibraryByLocation(string location)
+        {
+            return _libraryService.GetLibraryByLocation(location);
+        }
     }
 }

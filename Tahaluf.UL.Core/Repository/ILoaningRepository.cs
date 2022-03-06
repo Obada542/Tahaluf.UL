@@ -8,13 +8,13 @@ namespace Tahaluf.UL.Core.Repository
 {
     public interface ILoaningRepository
     {
-        List<Loaningul> GetAllLoaning();
+        List<Loaningul> GetAllBorrowings();
 
-        List<StudentLoaningDTO> GetStudentLoaning(int id);
+        List<StudentLoaningDTO> GetStudentBorrowing(int id);
 
-        string CreateLoanRequset(Loaningul loaning);
-        string UpdateLoanRequset(Loaningul loaning);
-        List<LoaningSearchDTO> GetAllLoaningByDates(LoanSearchDatesDTO dates);
+        string CreateBorrowingRequset(Loaningul loaning);
+        string UpdateBorrowingRequset(Loaningul loaning);
+        List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates);
 
     }
 }

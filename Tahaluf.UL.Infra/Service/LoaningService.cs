@@ -15,28 +15,28 @@ namespace Tahaluf.UL.Infra.Service
         {
             this._loaningRepository = _loaningRepository;
         }
-        public string CreateLoanRequset(Loaningul loaning)
+        public string CreateBorrowingRequset(Loaningul loaning)
         {
-            return _loaningRepository.CreateLoanRequset(loaning);
+            return _loaningRepository.CreateBorrowingRequset(loaning);
         }
 
-        public List<Loaningul> GetAllLoaning()
+        public List<Loaningul> GetAllBorrowings()
         {
-           return _loaningRepository.GetAllLoaning();
+           return _loaningRepository.GetAllBorrowings();
         }
 
-        public List<LoaningSearchDTO> GetAllLoaningByDates(LoanSearchDatesDTO dates)
+        public List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates)
         {
-            return _loaningRepository.GetAllLoaningByDates(dates);
+            return _loaningRepository.GetBorrowingsByDates(dates);
         }
 
-        public string UpdateLoanRequset(Loaningul loaning)
+        public string UpdateBorrowingRequset(Loaningul loaning)
         {
-            return _loaningRepository.UpdateLoanRequset(loaning);
+            return _loaningRepository.UpdateBorrowingRequset(loaning);
         }
-        public List<StudentLoaningDTO> GetStudentLoaning(int id)
+        public List<StudentLoaningDTO> GetStudentBorrowing(int id)
         {
-            return _loaningRepository.GetStudentLoaning(id);
+            return _loaningRepository.GetStudentBorrowing(id);
         }
 
     }
