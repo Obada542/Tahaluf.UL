@@ -21,6 +21,6 @@ namespace Tahaluf.UL.Core.Data
         [ForeignKey("Book_Id")]
         public virtual Bookul Book { get; set; }
         [ForeignKey("Student_Id")]
-        public virtual Studentul Student { get; set; }
+        public virtual StudentUL Student { get; set; }
     }
 }

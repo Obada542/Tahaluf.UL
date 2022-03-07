@@ -12,8 +12,8 @@ namespace Tahaluf.UL.Core.Data
     {
         public Loginul()
         {
-            Accountantuls = new HashSet<Accountantul>();
-            Studentuls = new HashSet<Studentul>();
+            Accountantuls = new HashSet<AccountantUL>();
+            Studentuls = new HashSet<StudentUL>();
         }
         [Key]
         public int Id { get; set; }
@@ -26,7 +26,7 @@ namespace Tahaluf.UL.Core.Data
         public int? Role_Id { get; set; }
         [ForeignKey("Role_Id")]
         public virtual Roleul Role { get; set; }
-        public virtual ICollection<Accountantul> Accountantuls { get; set; }
-        public virtual ICollection<Studentul> Studentuls { get; set; }
+        public virtual ICollection<AccountantUL> Accountantuls { get; set; }
+        public virtual ICollection<StudentUL> Studentuls { get; set; }
     }
 }
