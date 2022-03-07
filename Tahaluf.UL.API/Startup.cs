@@ -50,6 +50,14 @@ namespace Tahaluf.UL.API
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IAboutulRepository, AboutulRepository>();
             services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IHeaderRepository, HeaderRepository>();
+            services.AddScoped<IHeaderService, HeaderService>();
+            services.AddScoped<IJwtRepository, JwtRepository>();
+            services.AddScoped<IJwtService, JwtService>();
+
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -63,7 +71,7 @@ namespace Tahaluf.UL.API
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKEN"))
     };
 });
         }
