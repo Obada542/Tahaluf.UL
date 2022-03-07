@@ -48,7 +48,8 @@ namespace Tahaluf.UL.API
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddScoped<IContactulRepository, ContactulRepository>();
             services.AddScoped<IContactService, ContactService>();
-
+            services.AddScoped<IAboutulRepository, AboutulRepository>();
+            services.AddScoped<IAboutService, AboutService>();
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
