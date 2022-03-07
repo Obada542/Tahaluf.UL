@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Tahaluf.UL.Core.Data;
 
-namespace Tahaluf.UL.Core.Repository
+namespace Tahaluf.UL.Core.Service
 {
-   public interface IContactulRepository
+   public interface IContactService
     {
-
-
         List<Contactul> GetAllContactUl();
 
         bool CreateContactUl(Contactul contact);
@@ -20,4 +18,3 @@ namespace Tahaluf.UL.Core.Repository
         bool DeleteContactUl(string mobile);
     }
 }
-

@@ -19,7 +19,7 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Contactul> GetAllcontact()
+        public List<Contactul> GetAllContactUl()
         {
             IEnumerable<Contactul> result = DbContext.Connection.Query<Contactul>("CONTACTUL_PACKAGE.GETALLCONTACTUL", commandType: CommandType.StoredProcedure);
             return result.ToList();
@@ -36,7 +36,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
-            var result = DbContext.Connection.ExecuteAsync("contact_PACKAGE.CREATEcontact", p, commandType: CommandType.StoredProcedure);
+            var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.CREATECONTACTUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -52,9 +52,18 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
-            var result = DbContext.Connection.ExecuteAsync("contact_PACKAGE.CREATEcontact", p, commandType: CommandType.StoredProcedure);
+            var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.UPDATECONTACTUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+         public bool DeleteContactUl(string mobile)
+        {
+            var p = new DynamicParameters();
+            p.Add("Phone_Numbers", mobile , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.DELETECONTACTUL", p , commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
 
 
     }
