@@ -8,7 +8,6 @@ namespace Tahaluf.UL.Core.Data
 {
     public class Contactul
     {
-        public string Title { get; set; }
         public string Sub_Title { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
