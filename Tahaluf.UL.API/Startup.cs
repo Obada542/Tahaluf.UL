@@ -50,6 +50,10 @@ namespace Tahaluf.UL.API
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IAboutulRepository, AboutulRepository>();
             services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IBackgroundsulRepository, BackgroundsulRepository>();
+            services.AddScoped<IBackgroundService,BackgrounduService>();
+
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
