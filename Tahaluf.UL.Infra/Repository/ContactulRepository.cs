@@ -40,5 +40,22 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
         }
 
+
+       public bool UpdateContactUl(Contactul contact)
+        {
+            var p = new DynamicParameters();
+            p.Add("contact_Title", contact.TITLE, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("sub_Contact_Title", contact.Sub_Title, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("DESCRP", contact.Description, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("MAIL", contact.Email, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("Phone_Numbers", contact.Numbers, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
+
+
+            var result = DbContext.Connection.ExecuteAsync("contact_PACKAGE.CREATEcontact", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+
     }
 }
