@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.UL.Core.Data;
@@ -47,6 +48,37 @@ namespace Tahaluf.UL.API.Controllers
         public string DeleteLogin(int id)
         {
             return loginService.DeleteLogin(id);
+        }
+
+
+
+
+        //IMAGE
+        [HttpPost]
+        [Route("Upload")]
+        public Loginul Upload()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine("Images", fileName);
+
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                //DataBase
+                Loginul login = new Loginul();
+                login.Image = fileName;
+                return login;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
     }

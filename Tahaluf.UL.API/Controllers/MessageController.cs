@@ -35,5 +35,12 @@ namespace Tahaluf.UL.API.Controllers
             return messageService.CreateMessage(messagesul);
         }
 
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public string DeleteMessage(int id)
+        {
+            return messageService.DeleteMessage(id);
+        }
+
     }
 }

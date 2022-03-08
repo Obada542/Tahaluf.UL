@@ -27,5 +27,10 @@ namespace Tahaluf.UL.Infra.Service
         {
             return messageRepository.CreateMessage(messagesul);
         }
+
+        public string DeleteMessage(int id)
+        {
+            return messageRepository.DeleteMessage(id);
+        }
     }
 }

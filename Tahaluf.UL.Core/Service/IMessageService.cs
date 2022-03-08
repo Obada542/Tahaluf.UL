@@ -10,5 +10,7 @@ namespace Tahaluf.UL.Core.Service
         List<Messagesul> GetAllMessages();
 
         bool CreateMessage(Messagesul messagesul);
+
+        string DeleteMessage(int id);
     }
 }
