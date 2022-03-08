@@ -21,10 +21,10 @@ namespace Tahaluf.UL.Infra.Repository
 
 
 
-        public List<Headerul> GetHeader()
+        public Headerul GetHeader()
         {
-            IEnumerable<Headerul> result = DbContext.Connection.Query<Headerul>("HeaderPackage.GETHEADER", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            var result = DbContext.Connection.QueryFirstOrDefault<Headerul>("HeaderPackage.GETHEADER", commandType: CommandType.StoredProcedure);
+            return result;
         }
 
         public bool CreateHeader(Headerul headerul)

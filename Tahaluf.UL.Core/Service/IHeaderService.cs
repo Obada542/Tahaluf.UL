@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Service
 {
     public interface IHeaderService
     {
-        List<Headerul> GetHeader();
+        Headerul GetHeader();
 
         bool CreateHeader(Headerul headerul);
 
