@@ -29,7 +29,7 @@ namespace Tahaluf.UL.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("P_NAME", back.Page_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("B_GROUND", back.Background, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("B_GROUND", back.Background, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("BACKGROUNDSUL_PACKAGE.CREATEBACKGROUNDSUL", p, commandType: CommandType.StoredProcedure);
             return true;
@@ -39,7 +39,7 @@ namespace Tahaluf.UL.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("P_NAME", back.Page_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("B_GROUND", back.Background, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("B_GROUND", back.Background, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("BACKGROUNDSUL_PACKAGE.UPDATEBACKGROUNDSUL", p, commandType: CommandType.StoredProcedure);
             return true;
