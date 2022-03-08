@@ -56,6 +56,14 @@ namespace Tahaluf.UL.API
             services.AddScoped<IHeaderService, HeaderService>();
             services.AddScoped<IJwtRepository, JwtRepository>();
             services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IMessageService, MessageService>();
+
+
+            services.AddScoped<IBackgroundsulRepository, BackgroundsulRepository>();
+            services.AddScoped<IBackgroundService,BackgrounduService>();
 
 
             services.AddAuthentication(opt =>
