@@ -17,7 +17,7 @@ namespace Tahaluf.UL.Infra.Service
         }
 
 
-        public List<Headerul> GetHeader()
+        public Headerul GetHeader()
         {
             return headerRepository.GetHeader();
         }

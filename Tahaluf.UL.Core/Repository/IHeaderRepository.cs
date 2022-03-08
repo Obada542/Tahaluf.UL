@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Repository
 {
     public interface IHeaderRepository
     {
-        List<Headerul> GetHeader();
+        Headerul GetHeader();
 
         bool CreateHeader(Headerul headerul);
 
