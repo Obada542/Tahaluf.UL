@@ -8,16 +8,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Tahaluf.UL.Core.Data
 
 {
-    public class Recommentul
+    public class RecommentUL
     {
         [Key]
         public int Id { get; set; }
+
         public string Student_Comment { get; set; }
-        public int? Comment_Id { get; set; }
-        public int? Student_Id { get; set; }
+
+        public int Student_Id { get; set; }
         [ForeignKey("Student_Id")]
-        public virtual Studentul Student { get; set; }
+        public virtual StudentUL Student { get; set; }
+
+        public int Comment_Id { get; set; }
         [ForeignKey("Comment_Id")]
-        public virtual Commentul Comment { get; set; }
+        public virtual CommentUL Comment { get; set; }
     }
 }

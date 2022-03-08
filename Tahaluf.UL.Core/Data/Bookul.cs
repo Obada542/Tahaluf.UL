@@ -12,7 +12,7 @@ namespace Tahaluf.UL.Core.Data
     {
         public Bookul()
         {
-            Commentuls = new HashSet<Commentul>();
+            Commentuls = new HashSet<CommentUL>();
             Loaninguls = new HashSet<Loaningul>();
             Ratinguls = new HashSet<Ratingul>();
         }
@@ -30,7 +30,7 @@ namespace Tahaluf.UL.Core.Data
         public string Category { get; set; }
         [ForeignKey("Library_Id")]
         public virtual Libraryul Library { get; set; }
-        public virtual ICollection<Commentul> Commentuls { get; set; }
+        public virtual ICollection<CommentUL> Commentuls { get; set; }
         public virtual ICollection<Loaningul> Loaninguls { get; set; }
         public virtual ICollection<Ratingul> Ratinguls { get; set; }
     }

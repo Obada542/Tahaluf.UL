@@ -8,21 +8,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Tahaluf.UL.Core.Data
 
 {
-    public class Commentul
+    public class CommentUL
     {
-        public Commentul()
+        public CommentUL()
         {
-            Recommentuls = new HashSet<Recommentul>();
+            recommentULs = new HashSet<RecommentUL>();
         }
         [Key]
         public int Id { get; set; }
+
         public string Student_Comment { get; set; }
-        public int? Book_Id { get; set; }
-        public int? Student_Id { get; set; }
+
+        public int Student_Id { get; set; }
+        [ForeignKey("Student_Id")]
+        public virtual StudentUL Student { get; set; }
+
+        public int Book_Id { get; set; }
         [ForeignKey("Book_Id")]
         public virtual Bookul Book { get; set; }
-        [ForeignKey("Student_Id")]
-        public virtual Studentul Student { get; set; }
-        public virtual ICollection<Recommentul> Recommentuls { get; set; }
+
+        public ICollection<RecommentUL> recommentULs { get; set; }
     }
 }
