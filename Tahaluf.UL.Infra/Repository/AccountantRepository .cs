@@ -20,10 +20,6 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-
-
-
-
         public bool CreateAccountant(AccountantUL accountant)
         {
             var p = new DynamicParameters();

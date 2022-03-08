@@ -22,9 +22,9 @@ namespace Tahaluf.UL.API.Controllers
 
         [HttpGet]
         [Route("GetContacts")]
-        public Contactul GetContactUl(Contactul contact)
+        public Contactul GetContactUl()
         {
-            return contactService.GetContactUl(contact);
+            return contactService.GetContactUl();
         }
 
 

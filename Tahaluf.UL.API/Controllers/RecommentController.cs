@@ -22,8 +22,6 @@ namespace Tahaluf.UL.API.Controllers
         public bool CreateRecomment([FromBody] RecommentUL recomment)
         {
             return recommentService.CreateRecomment(recomment);
-
-
         }
 
         [HttpDelete]

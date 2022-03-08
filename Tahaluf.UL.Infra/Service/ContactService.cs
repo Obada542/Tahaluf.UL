@@ -15,9 +15,9 @@ namespace Tahaluf.UL.Infra.Service
             contactulRepository = _contactulRepository;
         }
 
-       public Contactul GetContactUl(Contactul contact)
+       public Contactul GetContactUl()
         {
-            return contactulRepository.GetContactUl(contact);
+            return contactulRepository.GetContactUl();
         }
 
        

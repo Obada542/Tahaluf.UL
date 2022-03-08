@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Repository
 {
    public interface IAboutulRepository
     {
-        Aboutul GetAboutUl(Aboutul about);
+        Aboutul GetAboutUl();
 
         bool UpdateAbouttUl(Aboutul about);
 

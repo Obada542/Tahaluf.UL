@@ -20,13 +20,10 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
-        [Route("AboutUl")]
-       public Aboutul GetAboutUl(Aboutul about)
+       public Aboutul GetAboutUl()
         {
-            return aboutService.GetAboutUl(about);
+            return aboutService.GetAboutUl();
         }
-
-       
 
         [HttpPatch]
         [Route("UpdateAbout")]

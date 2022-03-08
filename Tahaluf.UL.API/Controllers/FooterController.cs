@@ -21,14 +21,10 @@ namespace Tahaluf.UL.API.Controllers
 
         [HttpGet]
         [Route("GetFooter")]
-       public Footerul GetFooterul(Footerul foter)
+       public Footerul GetFooterul()
         {
-            return footerService.GetFooterul(foter);
+            return footerService.GetFooterul();
         }
-
-        
-
-    
 
         [HttpPatch]
         [Route("UpdateFooter")]

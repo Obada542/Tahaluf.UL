@@ -15,10 +15,10 @@ namespace Tahaluf.UL.Infra.Service
             footerRepository = _footerRepository;
         }
 
-        public Footerul GetFooterul(Footerul foter)
+        public Footerul GetFooterul()
 
         {
-            return footerRepository.GetFooterul(foter);
+            return footerRepository.GetFooterul();
         }
 
 

@@ -23,7 +23,6 @@ namespace Tahaluf.UL.API.Controllers
 
 
         [HttpGet]
-        [ProducesResponseType(typeof(List<Headerul>), StatusCodes.Status200OK)]
         public Headerul GetHeader()
         {
             return headerService.GetHeader();

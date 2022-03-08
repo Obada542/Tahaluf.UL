@@ -20,7 +20,6 @@ namespace Tahaluf.UL.API.Controllers
             roleService = _roleService;
         }
 
-
         [HttpGet]
         [ProducesResponseType(typeof(List<Roleul>), StatusCodes.Status200OK)]
         public List<Roleul> GetAllRoles()

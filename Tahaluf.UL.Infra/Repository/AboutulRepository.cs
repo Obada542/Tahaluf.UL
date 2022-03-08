@@ -12,21 +12,18 @@ namespace Tahaluf.UL.Infra.Repository
 {
     public class AboutulRepository : IAboutulRepository
     {
-        private readonly IDbContext DbContext;
+        private readonly IDbContext dbContext;
 
         public AboutulRepository(IDbContext _DbContext)
         {
-            DbContext = _DbContext;
+            dbContext = _DbContext;
         }
-        public Aboutul GetAboutUl(Aboutul about)
-
+        public Aboutul GetAboutUl()
         {
-            var result = DbContext.Connection.QueryFirstOrDefault<Aboutul>("ABOUTUL_PACKAGE.GETALLABOUTTUL", commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.QueryFirstOrDefault<Aboutul>("aboutul_package.getabout", commandType: CommandType.StoredProcedure);
             return result;
 
         }
-
-      
 
         public bool UpdateAbouttUl(Aboutul about)
         {
@@ -36,14 +33,8 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("DESCRP", about.Descriptions, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
-            var result = DbContext.Connection.ExecuteAsync("ABOUTUL_PACKAGE.UPDATEABOUTUL", p, commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.ExecuteAsync("aboutul_package.UPDATEABOUTUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-      
-
-
-
-
     }
 }

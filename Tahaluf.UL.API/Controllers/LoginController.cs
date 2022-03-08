@@ -50,9 +50,6 @@ namespace Tahaluf.UL.API.Controllers
             return loginService.DeleteLogin(id);
         }
 
-
-
-
         //IMAGE
         [HttpPost]
         [Route("Upload")]

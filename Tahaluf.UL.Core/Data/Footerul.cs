@@ -11,6 +11,6 @@ namespace Tahaluf.UL.Core.Data
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Instagram { get; set; }
-        public string SmallDesc { get; set; }
+        public string Small_Desc { get; set; }
     }
 }

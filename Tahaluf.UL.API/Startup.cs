@@ -38,34 +38,60 @@ namespace Tahaluf.UL.API
             
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
+
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
+
             services.AddScoped<ILibraryService, LibraryService>();
             services.AddScoped<ILibraryRepository, LibraryRepository>();
+
             services.AddScoped<ILoaningService, LoaningService>();
             services.AddScoped<ILoaningRepository, LoaningRepository>();
+
             services.AddScoped<IRatingService, RatingService>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+
             services.AddScoped<IContactulRepository, ContactulRepository>();
             services.AddScoped<IContactService, ContactService>();
+
             services.AddScoped<IAboutulRepository, AboutulRepository>();
             services.AddScoped<IAboutService, AboutService>();
+
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleService, RoleService>();
+
             services.AddScoped<IHeaderRepository, HeaderRepository>();
             services.AddScoped<IHeaderService, HeaderService>();
+
             services.AddScoped<IJwtRepository, JwtRepository>();
             services.AddScoped<IJwtService, JwtService>();
+
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<ILoginService, LoginService>();
+
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IMessageService, MessageService>();
+
             services.AddScoped<IFooterRepository, FooterRepository>();
             services.AddScoped<IFooterService, FooterService>();
+
             services.AddScoped<IBackgroundsulRepository, BackgroundsulRepository>();
             services.AddScoped<IBackgroundService,BackgrounduService>();
+
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<IHomeService, HomeService>();
+
+            services.AddScoped<IAccountantRepository, AccountantRepository>();
+            services.AddScoped<IAccountantService, AccountantService>();
+
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentService, CommentService>();
+
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentService, StudentService>();
+
+            services.AddScoped<IRecommentRepository, RecommentRepository>();
+            services.AddScoped<IRecommentService, RecommentService>();
 
             services.AddAuthentication(opt =>
             {

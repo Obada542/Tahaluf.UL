@@ -9,7 +9,7 @@ namespace Tahaluf.UL.Core.Repository
     {
 
 
-        Contactul GetContactUl(Contactul contact);
+        Contactul GetContactUl();
 
         
 

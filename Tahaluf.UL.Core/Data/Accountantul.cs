@@ -20,9 +20,5 @@ namespace Tahaluf.UL.Core.Data
         [ForeignKey("Login_Id")]
         public virtual Loginul Login { get; set; }
 
-
-
-
-
     }
 }

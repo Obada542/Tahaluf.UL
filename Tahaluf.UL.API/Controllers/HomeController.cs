@@ -20,7 +20,7 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetHom")]
+        [Route("GetHome")]
         public List<Homeul> GetAllHomeul()
         {
             return homeService.GetAllHomeul();

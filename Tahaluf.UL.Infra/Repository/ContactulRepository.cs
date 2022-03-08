@@ -19,7 +19,7 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public Contactul GetContactUl(Contactul contact)
+        public Contactul GetContactUl()
         {
             var result = DbContext.Connection.QueryFirstOrDefault<Contactul>("CONTACTUL_PACKAGE.GETALLCONTACTUL", commandType: CommandType.StoredProcedure);
             return result;
