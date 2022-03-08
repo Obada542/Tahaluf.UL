@@ -42,9 +42,5 @@ namespace Tahaluf.UL.Infra.Repository
         }
 
        
-
-       
-
-
     }
 }
