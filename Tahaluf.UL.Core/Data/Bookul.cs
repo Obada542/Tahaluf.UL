@@ -21,6 +21,5 @@ namespace Tahaluf.UL.Core.Data
         public string Image { get; set; }
         public int? Library_Id { get; set; }
         public string Category { get; set; }
-        public virtual Libraryul Library { get; set; }
     }
 }

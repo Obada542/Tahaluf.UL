@@ -16,6 +16,5 @@ namespace Tahaluf.UL.Core.Data
         public string Image { get; set; }
         public string Password { get; set; }
         public int? Role_Id { get; set; }
-        public virtual Roleul Role { get; set; }
     }
 }

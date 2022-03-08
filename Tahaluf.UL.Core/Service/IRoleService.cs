@@ -11,5 +11,6 @@ namespace Tahaluf.UL.Core.Service
         bool CreateRole(Roleul roleul);
         bool UpdateRole(Roleul roleul);
         string DeleteRole(int id);
+
     }
 }

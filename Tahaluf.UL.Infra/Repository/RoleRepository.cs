@@ -47,6 +47,5 @@ namespace Tahaluf.UL.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("RolePackage.DELETEROLE", p, commandType: CommandType.StoredProcedure);
             return "Deleted Successfully";
         }
-
     }
 }

@@ -14,7 +14,5 @@ namespace Tahaluf.UL.Core.Data
         public string Student_Comment { get; set; }
         public int Student_Id { get; set; }
         public int Comment_Id { get; set; }
-        public virtual StudentUL Student { get; set; }
-        public virtual CommentUL Comment { get; set; }
     }
 }

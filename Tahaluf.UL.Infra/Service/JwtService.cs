@@ -61,6 +61,7 @@ namespace Tahaluf.UL.Infra.Service
         public string Auth(Loginul loginul)
         {
             var result = jwtRepository.Auth(loginul);
+            var role = jwtRepository.GetRoleNameById(loginul.Role_Id);
 
             if (result == null) return null;
             else
@@ -82,7 +83,7 @@ namespace Tahaluf.UL.Infra.Service
                         //new Claim (type,vlaue)
                         new Claim(ClaimTypes.Name, result.Username),
                         //result.rolename
-                        new Claim (ClaimTypes.Role, result.Role.Role_Name)
+                        new Claim (ClaimTypes.Role, role.Role_Name)
                     }),
 
                     //Expires

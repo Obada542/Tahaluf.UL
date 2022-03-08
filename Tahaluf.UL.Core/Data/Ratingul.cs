@@ -13,7 +13,5 @@ namespace Tahaluf.UL.Core.Data
         public float? Rate { get; set; }
         public int? Book_Id { get; set; }
         public int? Student_Id { get; set; }
-        public virtual Bookul Book { get; set; }
-        public virtual StudentUL Student { get; set; }
     }
 }

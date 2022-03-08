@@ -33,6 +33,5 @@ namespace Tahaluf.UL.Infra.Service
         {
             return roleRepository.DeleteRole(id);
         }
-
     }
 }

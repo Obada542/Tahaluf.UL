@@ -13,6 +13,5 @@ namespace Tahaluf.UL.Core.Data
         public int Salary { get; set; }
         public string Address { get; set; }
         public int Login_Id { get; set; }
-        public virtual Loginul Login { get; set; }
     }
 }
