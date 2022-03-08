@@ -60,6 +60,7 @@ namespace Tahaluf.UL.API
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IFooterRepository, FooterRepository>();
 
 
             services.AddScoped<IBackgroundsulRepository, BackgroundsulRepository>();
