@@ -15,15 +15,12 @@ namespace Tahaluf.UL.Infra.Service
             contactulRepository = _contactulRepository;
         }
 
-       public List<Contactul> GetAllContactUl()
+       public Contactul GetContactUl(Contactul contact)
         {
-            return contactulRepository.GetAllContactUl();
+            return contactulRepository.GetContactUl(contact);
         }
 
-        public bool CreateContactUl(Contactul contact)
-        {
-            return contactulRepository.CreateContactUl(contact);
-        }
+       
        public bool UpdateContactUl(Contactul contact)
         {
             return contactulRepository.UpdateContactUl(contact);
@@ -31,10 +28,7 @@ namespace Tahaluf.UL.Infra.Service
         }
 
 
-        public bool DeleteContactUl(string mobile)
-        {
-            return contactulRepository.DeleteContactUl(mobile);
-        }
+       
 
 
     }

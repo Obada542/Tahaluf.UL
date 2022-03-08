@@ -19,35 +19,22 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Contactul> GetAllContactUl()
+        public Contactul GetContactUl(Contactul contact)
         {
-            IEnumerable<Contactul> result = DbContext.Connection.Query<Contactul>("CONTACTUL_PACKAGE.GETALLCONTACTUL", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            var result = DbContext.Connection.QueryFirstOrDefault<Contactul>("CONTACTUL_PACKAGE.GETALLCONTACTUL", commandType: CommandType.StoredProcedure);
+            return result;
         }
 
-        public bool CreateContactUl(Contactul contact)
-        {
-            var p = new DynamicParameters();
-            p.Add("contact_Title", contact.TITLE, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("sub_Contact_Title", contact.Sub_Title, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("DESCRP", contact.Description, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("MAIL", contact.Email, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("Phone_Numbers", contact.Numbers, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
-            var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.CREATECONTACTUL", p, commandType: CommandType.StoredProcedure);
-            return true;
-        }
+      
 
 
        public bool UpdateContactUl(Contactul contact)
         {
             var p = new DynamicParameters();
             p.Add("contact_Title", contact.TITLE, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("sub_Contact_Title", contact.Sub_Title, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("DESCRP", contact.Description, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("MAIL", contact.Email, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("sub_Contact_Title", contact.Sub_Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DESCRP", contact.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MAIL", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phone_Numbers", contact.Numbers, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
 
@@ -56,13 +43,7 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
         }
 
-         public bool DeleteContactUl(string mobile)
-        {
-            var p = new DynamicParameters();
-            p.Add("Phone_Numbers", mobile , dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.DELETECONTACTUL", p , commandType: CommandType.StoredProcedure);
-            return true;
-        }
+        
 
 
 

@@ -22,17 +22,12 @@ namespace Tahaluf.UL.API.Controllers
 
         [HttpGet]
         [Route("GetContacts")]
-        public List<Contactul> GetAllContactUl()
+        public Contactul GetContactUl(Contactul contact)
         {
-            return contactService.GetAllContactUl();
+            return contactService.GetContactUl(contact);
         }
 
-        [HttpPost]
-        [Route("CreateContact")]
-        public bool CreateContactUl([FromBody] Contactul contact)
-        {
-            return contactService.CreateContactUl(contact);
-        }
+
 
         [HttpPatch]
         [Route("UpdateContact")]
@@ -42,12 +37,7 @@ namespace Tahaluf.UL.API.Controllers
 
         }
 
-        [HttpDelete]
-        [Route("Delete/{mobile}")]
-        public bool DeleteContactUl(string mobile)
-        {
-            return contactService.DeleteContactUl(mobile);
-        }
+        
 
     }
 }

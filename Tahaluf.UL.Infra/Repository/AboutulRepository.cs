@@ -18,44 +18,29 @@ namespace Tahaluf.UL.Infra.Repository
         {
             DbContext = _DbContext;
         }
-        public List<Aboutul> GetAllAboutUl()
+        public Aboutul GetAboutUl(Aboutul about)
+
         {
-            IEnumerable<Aboutul> result = DbContext.Connection.Query<Aboutul>("ABOUTUL_PACKAGE.GETALLABOUTTUL", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            var result = DbContext.Connection.QueryFirstOrDefault<Aboutul>("ABOUTUL_PACKAGE.GETALLABOUTTUL", commandType: CommandType.StoredProcedure);
+            return result;
 
         }
 
-        public bool CreateAbouttUl(Aboutul about)
-        {
-            var p = new DynamicParameters();
-            p.Add("About_Title", about.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("sub_About_Title", about.Sub_Title, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("DESCRP", about.Descriptions, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-
-
-            var result = DbContext.Connection.ExecuteAsync("ABOUTUL_PACKAGE.CREATEABOUTUL", p, commandType: CommandType.StoredProcedure);
-            return true;
-        }
+      
 
         public bool UpdateAbouttUl(Aboutul about)
         {
             var p = new DynamicParameters();
             p.Add("About_Title", about.Title, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("sub_About_Title", about.Sub_Title, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("DESCRP", about.Descriptions, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("sub_About_Title", about.Sub_Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DESCRP", about.Descriptions, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
             var result = DbContext.Connection.ExecuteAsync("ABOUTUL_PACKAGE.UPDATEABOUTUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
 
-       public bool DeleteAbouttUl(string titl)
-        {
-            var p = new DynamicParameters();
-            p.Add("About_Title", titl, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("ABOUTUL_PACKAGE.DELETEABOUTUL", p, commandType: CommandType.StoredProcedure);
-            return true;
-        }
+      
 
 
 

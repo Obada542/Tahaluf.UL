@@ -9,15 +9,15 @@ namespace Tahaluf.UL.Core.Repository
     {
 
 
-        List<Contactul> GetAllContactUl();
+        Contactul GetContactUl(Contactul contact);
 
-        bool CreateContactUl(Contactul contact);
+        
 
 
         bool UpdateContactUl(Contactul contact);
 
 
-        bool DeleteContactUl(string mobile);
+       
     }
 }
 

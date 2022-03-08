@@ -61,11 +61,11 @@ namespace Tahaluf.UL.API
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IMessageService, MessageService>();
             services.AddScoped<IFooterRepository, FooterRepository>();
-
-
+            services.AddScoped<IFooterService, FooterService>();
             services.AddScoped<IBackgroundsulRepository, BackgroundsulRepository>();
             services.AddScoped<IBackgroundService,BackgrounduService>();
-
+            services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IHomeService, HomeService>();
 
             services.AddAuthentication(opt =>
             {

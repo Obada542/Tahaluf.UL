@@ -7,14 +7,11 @@ namespace Tahaluf.UL.Core.Repository
 {
   public interface IFooterRepository
     {
-        List<Footerul> GetAllFooterul();
-
-        bool CreateFooterul(Footerul foter);
-
+        Footerul GetFooterul(Footerul foter);
 
         bool UpdateFooterul(Footerul foter);
 
 
-        bool DeleteFooterul(string F_BOOK);
+       
     }
 }

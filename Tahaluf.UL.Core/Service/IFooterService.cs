@@ -5,13 +5,15 @@ using Tahaluf.UL.Core.Data;
 
 namespace Tahaluf.UL.Core.Service
 {
-   public interface IAboutService
+    public interface IFooterService
     {
-        Aboutul GetAboutUl(Aboutul about);
+        Footerul GetFooterul(Footerul foter);
 
 
 
-        bool UpdateAbouttUl(Aboutul about);
+
+        bool UpdateFooterul(Footerul foter);
+
 
 
     }

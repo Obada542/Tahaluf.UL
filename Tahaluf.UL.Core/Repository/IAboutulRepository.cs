@@ -7,14 +7,9 @@ namespace Tahaluf.UL.Core.Repository
 {
    public interface IAboutulRepository
     {
-        List<Aboutul> GetAllAboutUl();
-
-        bool CreateAbouttUl(Aboutul about);
-
+        Aboutul GetAboutUl(Aboutul about);
 
         bool UpdateAbouttUl(Aboutul about);
 
-
-        bool DeleteAbouttUl(string titl);
     }
 }
