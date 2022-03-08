@@ -21,17 +21,12 @@ namespace Tahaluf.UL.API.Controllers
 
         [HttpGet]
         [Route("AboutUl")]
-       public List<Aboutul> GetAllAboutUl()
+       public Aboutul GetAboutUl(Aboutul about)
         {
-            return aboutService.GetAllAboutUl();
+            return aboutService.GetAboutUl(about);
         }
 
-        [HttpPost]
-        [Route("CreateAbout")]
-       public bool CreateAboutUl([FromBody] Aboutul about)
-        {
-            return aboutService.CreateAboutUl(about);
-        }
+       
 
         [HttpPatch]
         [Route("UpdateAbout")]
@@ -40,13 +35,7 @@ namespace Tahaluf.UL.API.Controllers
             return aboutService.UpdateAbouttUl(about);
         }
 
-        [HttpDelete]
-        [Route("DeleteAbout/{titl}")]
-        public bool DeleteAbouttUl(string titl)
-        {
-            return aboutService.DeleteAbouttUl(titl);
-        }
-
+        
 
 
     }
