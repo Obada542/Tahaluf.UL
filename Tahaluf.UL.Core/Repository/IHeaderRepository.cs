@@ -8,11 +8,6 @@ namespace Tahaluf.UL.Core.Repository
     public interface IHeaderRepository
     {
         Headerul GetHeader();
-
-        bool CreateHeader(Headerul headerul);
-
         bool UpdateHeader(Headerul headerul);
-
-        string DeleteHeader();
     }
 }

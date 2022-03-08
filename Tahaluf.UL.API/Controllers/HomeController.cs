@@ -20,31 +20,32 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetHome")]
-        public List<Homeul> GetAllHomeul()
+        [ProducesResponseType(typeof(List<Homeul>), StatusCodes.Status200OK)]
+        [Route("GetSliders")]
+        public List<Homeul> GetAllSliders()
         {
-            return homeService.GetAllHomeul();
+            return homeService.GetAllSliders();
         }
 
         [HttpPost]
-        [Route("CreateHome")]
-        public bool CreateHomeul([FromBody]Homeul hom)
+        [Route("CreateSlider")]
+        public bool CreateSlider([FromBody]Homeul slider)
         {
-            return homeService.CreateHomeul(hom);
+            return homeService.CreateSlider(slider);
         }
 
-        [HttpPatch]
-        [Route("UpdateHome")]
-        public bool UpdateHomeul([FromBody]Homeul hom)
+        [HttpPut]
+        [Route("UpdateSlider")]
+        public bool UpdateSlider([FromBody] Homeul slider)
         {
-            return homeService.UpdateHomeul(hom);
+            return homeService.UpdateSlider(slider);
         }
 
         [HttpDelete]
-        [Route("DeleteHome/{id}")]
+        [Route("DeleteSlider/{id}")]
         public bool DeleteHomeul(int id)
         {
-            return homeService.DeleteHomeul(id);
+            return homeService.DeleteSlider(id);
         }
     }
 }

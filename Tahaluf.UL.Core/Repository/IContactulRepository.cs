@@ -7,17 +7,8 @@ namespace Tahaluf.UL.Core.Repository
 {
    public interface IContactulRepository
     {
-
-
-        Contactul GetContactUl();
-
-        
-
-
-        bool UpdateContactUl(Contactul contact);
-
-
-       
+        Contactul GetContact();
+        bool UpdateContact(Contactul contact);
     }
 }
 

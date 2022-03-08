@@ -15,7 +15,6 @@ namespace Tahaluf.UL.API.Controllers
         public RecommentController(IRecommentService _recommentService)
         {
             recommentService = _recommentService;
-
         }
 
         [HttpPost]
@@ -29,24 +28,19 @@ namespace Tahaluf.UL.API.Controllers
         public bool DeleteRecomment(int id)
         {
             return recommentService.DeleteRecomment(id);
-
         }
 
         [HttpPut]
         public bool UpdateRecomment([FromBody] RecommentUL recomment)
         {
             return recommentService.UpdateRecomment(recomment);
-
-
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(List<RecommentUL>), StatusCodes.Status200OK)]
         public List<RecommentUL> GetAllRecomment()
         {
             return recommentService.GetAllRecomment();
         }
-
-
-
     }
 }

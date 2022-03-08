@@ -15,9 +15,6 @@ namespace Tahaluf.UL.Infra.Service
         {
             _commentRepository = commentRepository;
         }
-
-
-
         public bool CreateComment(CommentUL comment)
         {
             return _commentRepository.CreateComment(comment);
@@ -32,7 +29,6 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _commentRepository.GetAllComment();
         }
-
         public bool UpdateComment(CommentUL comment)
         {
             return _commentRepository.UpdateComment(comment);

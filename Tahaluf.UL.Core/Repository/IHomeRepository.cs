@@ -7,15 +7,9 @@ namespace Tahaluf.UL.Core.Repository
 {
    public interface IHomeRepository
     {
-        List<Homeul> GetAllHomeul();
-
-        bool CreateHomeul(Homeul hom);
-
-
-        bool UpdateHomeul(Homeul hom);
-
-
-        bool DeleteHomeul(int id);
-
+        List<Homeul> GetAllSliders();
+        bool CreateSlider(Homeul slider);
+        bool UpdateSlider(Homeul slider);
+        bool DeleteSlider(int id);
     }
 }

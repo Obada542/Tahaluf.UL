@@ -15,37 +15,46 @@ namespace Tahaluf.UL.API.Controllers
         {
             this._bookService = _bookService;
         }
+
         [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
         [Route("GetBooks")]
         public List<Bookul> GetAllBooks()
         {
             return _bookService.GetAllBooks();
         }
+
         [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
         [Route("Search/{name}")]
         public List<Bookul> SearchBook(string name)
         {
             return _bookService.SearchBook(name);
         }
+
         [HttpPost]
         [Route("CreateBook")]
         public bool CreateNewBook([FromBody]Bookul book)
         {
             return _bookService.CreateNewBook(book);
         }
-        [HttpPatch]
+
+        [HttpPut]
         [Route("UpdateBook")]
         public bool UpdateBook([FromBody] Bookul book)
         {
             return _bookService.UpdateBook(book);
         }
+
         [HttpDelete]
         [Route("DeleteBook/{id}")]
         public bool DeleteBook(int id)
         {
             return _bookService.DeleteBook(id);
         }
+
         [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
         [Route("SearchByLibrary/{name}")]
         public List<Bookul> GetAllBooksByLibrary(string name)
         {

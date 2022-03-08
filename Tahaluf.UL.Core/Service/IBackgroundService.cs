@@ -7,14 +7,8 @@ namespace Tahaluf.UL.Core.Service
 {
    public interface IBackgroundService
     {
-        List<Backgroundsul> GetAllBackgroundUl();
-
-        bool CreateBackgroungUl(Backgroundsul back);
-
-
-        bool UpdateBackgroundUl(Backgroundsul back);
-
-
-        bool DeleteBackgroundUl(string page);
+        List<Backgroundsul> GetAllBackgrounds();
+        bool CreateBackground(Backgroundsul back);
+        bool UpdateBackground(Backgroundsul back);
     }
 }

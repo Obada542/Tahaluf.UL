@@ -28,19 +28,17 @@ namespace Tahaluf.UL.API.Controllers
             return loginService.GetAllLogins();
         }
 
-
         [HttpPost]
-        public bool CreateLogin(Loginul loginul)
+        public bool CreateLogin([FromBody] Loginul login)
         {
-            return loginService.CreateLogin(loginul);
+            return loginService.CreateLogin(login);
         }
 
-
         [HttpPut]
-        [Route("Update/{id}")]
-        public bool UpdateLogin([FromBody] Loginul loginul)
+        [Route("Update")]
+        public bool UpdateLogin([FromBody] Loginul login)
         {
-            return loginService.UpdateLogin(loginul);
+            return loginService.UpdateLogin(login);
         }
 
         [HttpDelete]
@@ -48,34 +46,6 @@ namespace Tahaluf.UL.API.Controllers
         public string DeleteLogin(int id)
         {
             return loginService.DeleteLogin(id);
-        }
-
-        //IMAGE
-        [HttpPost]
-        [Route("Upload")]
-        public Loginul Upload()
-        {
-            try
-            {
-                var file = Request.Form.Files[0];
-                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-                var fullPath = Path.Combine("Images", fileName);
-
-                using (var stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-
-                //DataBase
-                Loginul login = new Loginul();
-                login.Image = fileName;
-                return login;
-            }
-
-            catch (Exception e)
-            {
-                return null;
-            }
         }
 
     }

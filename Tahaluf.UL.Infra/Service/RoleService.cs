@@ -10,13 +10,10 @@ namespace Tahaluf.UL.Infra.Service
     public class RoleService : IRoleService
     {
         private readonly IRoleRepository roleRepository;
-
         public RoleService(IRoleRepository _roleRepository)
         {
             roleRepository = _roleRepository;
         }
-
-
         public List<Roleul> GetAllRoles()
         {
             return roleRepository.GetAllRoles();

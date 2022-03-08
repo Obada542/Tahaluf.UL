@@ -7,10 +7,8 @@ namespace Tahaluf.UL.Core.Service
 {
    public interface IAboutService
     {
-        Aboutul GetAboutUl();
-
-        bool UpdateAbouttUl(Aboutul about);
-
+        Aboutul GetAbout();
+        bool UpdateAbout(Aboutul about);
 
     }
 }

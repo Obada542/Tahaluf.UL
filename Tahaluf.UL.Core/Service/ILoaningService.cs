@@ -9,9 +9,7 @@ namespace Tahaluf.UL.Core.Service
     public interface ILoaningService
     {
         List<Loaningul> GetAllBorrowings();
-
         List<StudentLoaningDTO> GetStudentBorrowing(int id);
-
         string CreateBorrowingRequset(Loaningul loaning);
         string UpdateBorrowingRequset(Loaningul loaning);
         List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates);

@@ -8,11 +8,6 @@ namespace Tahaluf.UL.Core.Service
     public interface IHeaderService
     {
         Headerul GetHeader();
-
-        bool CreateHeader(Headerul headerul);
-
         bool UpdateHeader(Headerul headerul);
-
-        string DeleteHeader();
     }
 }

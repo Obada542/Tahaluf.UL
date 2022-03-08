@@ -7,9 +7,7 @@ namespace Tahaluf.UL.Core.Service
 {
     public interface IFooterService
     {
-        Footerul GetFooterul();
-
-        bool UpdateFooterul(Footerul foter);
-
+        Footerul GetFooter();
+        bool UpdateFooter(Footerul foter);
     }
 }

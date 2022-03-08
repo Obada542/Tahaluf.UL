@@ -8,11 +8,8 @@ namespace Tahaluf.UL.Core.Repository
     public interface ILoginRepository
     {
         List<Loginul> GetAllLogins();
-
         bool CreateLogin(Loginul loginul);
-
         bool UpdateLogin(Loginul loginul);
-
         string DeleteLogin(int id);
     }
 }

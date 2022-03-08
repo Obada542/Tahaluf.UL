@@ -18,15 +18,11 @@ namespace Tahaluf.UL.Infra.Repository
         {
             DbContext = _DbContext;
         }
-
-
         public List<Messagesul> GetAllMessages()
         {
             IEnumerable<Messagesul> result = DbContext.Connection.Query<Messagesul>("MESSAGE_PACKAGE.GETALLMESSAGES", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
-
         public bool CreateMessage(Messagesul messagesul)
         {
             var p = new DynamicParameters();
@@ -39,14 +35,12 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
 
         }
-
-
         public string DeleteMessage(int id)
         {
             var p = new DynamicParameters();
             p.Add("(MsgId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("MESSAGE_PACKAGE.DELETEMESSAGE", p, commandType: CommandType.StoredProcedure);
+            
             return "Deleted Successfully";
         }
 

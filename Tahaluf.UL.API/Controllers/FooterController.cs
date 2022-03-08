@@ -20,17 +20,18 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(Footerul), StatusCodes.Status200OK)]
         [Route("GetFooter")]
-       public Footerul GetFooterul()
+       public Footerul GetFooter()
         {
-            return footerService.GetFooterul();
+            return footerService.GetFooter();
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("UpdateFooter")]
-        public bool UpdateFooterul([FromBody]Footerul foter)
+        public bool UpdateFooter([FromBody] Footerul footer)
         {
-            return footerService.UpdateFooterul(foter);
+            return footerService.UpdateFooter(footer);
         }
        
     }

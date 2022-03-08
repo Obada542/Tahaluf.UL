@@ -9,11 +9,8 @@ namespace Tahaluf.UL.Core.Service
     {
 
         List<AccountantUL> GetAllAccountants();
-
         bool CreateAccountant(AccountantUL accountant);
-
         bool UpdateAccountant(AccountantUL accountant);
-
         bool DeleteAccountant(int id);
 
     }

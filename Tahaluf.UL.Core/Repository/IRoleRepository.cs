@@ -8,11 +8,8 @@ namespace Tahaluf.UL.Core.Repository
     public interface IRoleRepository
     {
         List<Roleul> GetAllRoles();
-
         bool CreateRole(Roleul roleul);
-
         bool UpdateRole(Roleul roleul);
-
         string DeleteRole(int id);
     }
 }

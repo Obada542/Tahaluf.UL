@@ -18,14 +18,14 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-       public List<Backgroundsul> GetAllBackgroundUl()
+       public List<Backgroundsul> GetAllBackgrounds()
         {
             IEnumerable<Backgroundsul> result = DbContext.Connection.Query<Backgroundsul>("BACKGROUNDSUL_PACKAGE.GETALLBACKGROUNDSUL", commandType: CommandType.StoredProcedure);
             
             return result.ToList();
         }
 
-        public bool CreateBackgroungUl(Backgroundsul back)
+        public bool CreateBackground(Backgroundsul back)
         {
             var p = new DynamicParameters();
             p.Add("P_NAME", back.Page_Name, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -35,7 +35,7 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
         }
 
-        public bool UpdateBackgroundUl(Backgroundsul back)
+        public bool UpdateBackground(Backgroundsul back)
         {
             var p = new DynamicParameters();
             p.Add("P_NAME", back.Page_Name, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -44,17 +44,6 @@ namespace Tahaluf.UL.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("BACKGROUNDSUL_PACKAGE.UPDATEBACKGROUNDSUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-        public bool DeleteBackgroundUl(string page)
-        {
-            var p = new DynamicParameters();
-            p.Add("P_NAME", page, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("BACKGROUNDSUL_PACKAGE.DELETEBACKGROUNDSUL", p, commandType: CommandType.StoredProcedure);
-            return true;
-
-        }
-
-
 
     }
 }

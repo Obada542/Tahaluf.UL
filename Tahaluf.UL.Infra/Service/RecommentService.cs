@@ -15,20 +15,14 @@ namespace Tahaluf.UL.Infra.Service
         {
             _RecommentRepository = RecommentRepository;
         }
-
-
         public bool CreateRecomment(RecommentUL recomment)
         {
             return _RecommentRepository.CreateRecomment(recomment);
-
         }
-
         public bool DeleteRecomment(int id)
         {
             return _RecommentRepository.DeleteRecomment(id);
-
         }
-
         public List<RecommentUL> GetAllRecomment()
         {
             return _RecommentRepository.GetAllRecomment();

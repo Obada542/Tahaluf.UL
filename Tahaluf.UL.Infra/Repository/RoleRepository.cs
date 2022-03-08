@@ -13,13 +13,10 @@ namespace Tahaluf.UL.Infra.Repository
     public class RoleRepository: IRoleRepository
     {
         private readonly IDbContext DbContext;
-
         public RoleRepository(IDbContext _DbContext)
         {
             DbContext = _DbContext;
         }
-
-
         public List<Roleul> GetAllRoles()
         {
             IEnumerable<Roleul> result = DbContext.Connection.Query<Roleul>("RolePackage.GETROLE", commandType: CommandType.StoredProcedure);
@@ -30,7 +27,6 @@ namespace Tahaluf.UL.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("ROLENAME", roleul.Role_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("RolePackage.CREATEROLE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -40,7 +36,6 @@ namespace Tahaluf.UL.Infra.Repository
             var p = new DynamicParameters();
             p.Add("ROLEID", roleul.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("ROLENAME", roleul.Role_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("RolePackage.UPDATEROLE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -49,7 +44,6 @@ namespace Tahaluf.UL.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("ROLEID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("RolePackage.DELETEROLE", p, commandType: CommandType.StoredProcedure);
             return "Deleted Successfully";
         }

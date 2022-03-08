@@ -8,11 +8,8 @@ namespace Tahaluf.UL.Core.Repository
     public interface IAccountantRepository
     {
         List<AccountantUL> GetAllAccountants();
-
         bool CreateAccountant(AccountantUL accountant);
-
         bool UpdateAccountant(AccountantUL accountant);
-
         bool DeleteAccountant(int id);
 
     }

@@ -9,12 +9,9 @@ namespace Tahaluf.UL.Core.Repository
     public interface ILoaningRepository
     {
         List<Loaningul> GetAllBorrowings();
-
         List<StudentLoaningDTO> GetStudentBorrowing(int id);
-
         string CreateBorrowingRequset(Loaningul loaning);
         string UpdateBorrowingRequset(Loaningul loaning);
         List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates);
-
     }
 }

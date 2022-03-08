@@ -16,25 +16,19 @@ namespace Tahaluf.UL.Infra.Service
             backgroundsulRepository = _backgroundsulRepository;
         }
 
-        public List<Backgroundsul> GetAllBackgroundUl()
+        public List<Backgroundsul> GetAllBackgrounds()
         {
-            return backgroundsulRepository.GetAllBackgroundUl();
+            return backgroundsulRepository.GetAllBackgrounds();
         }
 
-        public bool CreateBackgroungUl(Backgroundsul back)
+        public bool CreateBackground(Backgroundsul back)
         {
-            return backgroundsulRepository.CreateBackgroungUl(back);
+            return backgroundsulRepository.CreateBackground(back);
         }
 
-      public  bool UpdateBackgroundUl(Backgroundsul back)
+      public  bool UpdateBackground(Backgroundsul back)
         {
-            return backgroundsulRepository.UpdateBackgroundUl(back);
+            return backgroundsulRepository.UpdateBackground(back);
         }
-
-        public bool DeleteBackgroundUl(string page)
-        {
-            return backgroundsulRepository.DeleteBackgroundUl(page);
-        }
-
     }
 }

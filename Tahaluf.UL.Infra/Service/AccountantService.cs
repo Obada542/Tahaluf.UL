@@ -10,13 +10,10 @@ namespace Tahaluf.UL.Infra.Service
     public class AccountantService : IAccountantService
     {
         private readonly IAccountantRepository _accountantRepository;
-
         public AccountantService(IAccountantRepository accountantRepository)
         {
             _accountantRepository = accountantRepository;
         }
-
-
         public bool CreateAccountant(AccountantUL accountant)
         {
             return _accountantRepository.CreateAccountant(accountant);

@@ -20,7 +20,6 @@ namespace Tahaluf.UL.API.Controllers
             messageService = _messageService;
         }
 
-
         [HttpGet]
         [ProducesResponseType(typeof(List<Messagesul>), StatusCodes.Status200OK)]
         public List<Messagesul> GetAllMessages()
@@ -28,11 +27,10 @@ namespace Tahaluf.UL.API.Controllers
             return messageService.GetAllMessages();
         }
 
-
         [HttpPost]
-        public bool CreateMessage(Messagesul messagesul)
+        public bool CreateMessage([FromBody]Messagesul messages)
         {
-            return messageService.CreateMessage(messagesul);
+            return messageService.CreateMessage(messages);
         }
 
         [HttpDelete]

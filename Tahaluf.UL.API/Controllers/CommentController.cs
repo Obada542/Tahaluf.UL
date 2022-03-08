@@ -17,12 +17,10 @@ namespace Tahaluf.UL.API.Controllers
             commentService = _commentService;
         }
 
-
         [HttpPost]
         public bool CreateComment([FromBody] CommentUL comment)
         {
             return commentService.CreateComment(comment);
-
         }
 
         [HttpDelete]
@@ -39,6 +37,7 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(List<CommentUL>), StatusCodes.Status200OK)]
         public List<CommentUL> GetAllComment()
         {
             return commentService.GetAllComment();

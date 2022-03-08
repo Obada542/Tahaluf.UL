@@ -15,13 +15,16 @@ namespace Tahaluf.UL.API.Controllers
         {
             this._ratingService = _ratingService;
         }
+
         [HttpGet,Route("{id}")]
+        [ProducesResponseType(typeof(List<Ratingul>), StatusCodes.Status200OK)]
         public List<Ratingul> GetBookRating(int id)
         {
             return _ratingService.GetBookRating(id);
         }
+
         [HttpPost]
-        public string AddRating([FromBody]Ratingul rate)
+        public string AddRating([FromBody] Ratingul rate)
         {
             return _ratingService.AddRating(rate);
         }

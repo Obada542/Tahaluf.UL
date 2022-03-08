@@ -20,20 +20,19 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
-       public Aboutul GetAboutUl()
+        [ProducesResponseType(typeof(Aboutul), StatusCodes.Status200OK)]
+        [Route("AboutUl")]
+       public Aboutul GetAbout()
         {
-            return aboutService.GetAboutUl();
+            return aboutService.GetAbout();
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("UpdateAbout")]
-        public bool UpdateAbouttUl([FromBody]Aboutul about)
+        public bool UpdateAbout([FromBody]Aboutul about)
         {
-            return aboutService.UpdateAbouttUl(about);
+            return aboutService.UpdateAbout(about);
         }
-
-        
-
 
     }
 }

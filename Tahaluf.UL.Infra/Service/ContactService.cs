@@ -14,22 +14,13 @@ namespace Tahaluf.UL.Infra.Service
         {
             contactulRepository = _contactulRepository;
         }
-
-       public Contactul GetContactUl()
+       public Contactul GetContact()
         {
-            return contactulRepository.GetContactUl();
+            return contactulRepository.GetContact();
         }
-
-       
-       public bool UpdateContactUl(Contactul contact)
+       public bool UpdateContact(Contactul contact)
         {
-            return contactulRepository.UpdateContactUl(contact);
-
+            return contactulRepository.UpdateContact(contact);
         }
-
-
-       
-
-
     }
 }

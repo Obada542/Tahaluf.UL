@@ -10,13 +10,6 @@ namespace Tahaluf.UL.Core.Data
 {
     public class Bookul
     {
-        public Bookul()
-        {
-            Commentuls = new HashSet<CommentUL>();
-            Loaninguls = new HashSet<Loaningul>();
-            Ratinguls = new HashSet<Ratingul>();
-        }
-        [Key]
         public int Id { get; set; }
         public string Book_Name { get; set; }
         public string Author { get; set; }
@@ -28,10 +21,6 @@ namespace Tahaluf.UL.Core.Data
         public string Image { get; set; }
         public int? Library_Id { get; set; }
         public string Category { get; set; }
-        [ForeignKey("Library_Id")]
         public virtual Libraryul Library { get; set; }
-        public virtual ICollection<CommentUL> Commentuls { get; set; }
-        public virtual ICollection<Loaningul> Loaninguls { get; set; }
-        public virtual ICollection<Ratingul> Ratinguls { get; set; }
     }
 }

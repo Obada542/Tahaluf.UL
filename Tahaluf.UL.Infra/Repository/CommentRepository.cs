@@ -20,15 +20,12 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-
         public bool CreateComment(CommentUL comment)
         {
             var p = new DynamicParameters();
             p.Add("SComment", comment.Student_Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StudentId", comment.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BookId", comment.Book_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-
             IEnumerable<CommentUL> result = DbContext.Connection.Query<CommentUL>("CommentUL_Package.CreateComment", p, commandType: CommandType.StoredProcedure);
 
             return true;
@@ -42,13 +39,11 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
 
         }
-
         public List<CommentUL> GetAllComment()
         {
             IEnumerable<CommentUL> result = DbContext.Connection.Query<CommentUL>("CommentUL_Package.GetAllComment", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
         public bool UpdateComment(CommentUL comment)
         {
             var p = new DynamicParameters();
@@ -56,12 +51,9 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("SComment", comment.Student_Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StudentId", comment.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BookId", comment.Book_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("CommentUL_Package.UpdateComment", p, commandType: CommandType.StoredProcedure);
 
             return true;
-
-
         }
     }
 }

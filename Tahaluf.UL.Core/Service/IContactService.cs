@@ -7,10 +7,7 @@ namespace Tahaluf.UL.Core.Service
 {
    public interface IContactService
     {
-        Contactul GetContactUl();
-
-        bool UpdateContactUl(Contactul contact);
-
-
+        Contactul GetContact();
+        bool UpdateContact(Contactul contact);
     }
 }

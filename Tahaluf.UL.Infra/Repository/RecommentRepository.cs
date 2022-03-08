@@ -13,22 +13,16 @@ namespace Tahaluf.UL.Infra.Repository
     public class RecommentRepository : IRecommentRepository
     {
         private readonly IDbContext DbContext;
-
-
         public RecommentRepository(IDbContext _DbContext)
         {
             DbContext = _DbContext;
         }
-
-
         public bool CreateRecomment(RecommentUL recomment)
         {
             var p = new DynamicParameters();
             p.Add("SComment", recomment.Student_Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StudentId", recomment.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("CommentId", recomment.Comment_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-
             IEnumerable<RecommentUL> result = DbContext.Connection.Query<RecommentUL>("RecommentUL_Package.CreateRecomment", p, commandType: CommandType.StoredProcedure);
 
             return true;
@@ -40,7 +34,6 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("RecommentId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             DbContext.Connection.ExecuteAsync("RecommentUL_Package.DeleteRecomment", p, commandType: CommandType.StoredProcedure);
             return true;
-
         }
 
         public List<RecommentUL> GetAllRecomment()
@@ -56,12 +49,9 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("SComment", recomment.Student_Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StudentId", recomment.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("CommentId", recomment.Comment_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("RecommentUL_Package.UpdateRecomment ", p, commandType: CommandType.StoredProcedure);
 
             return true;
-
-
         }
     }
 }

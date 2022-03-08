@@ -18,27 +18,21 @@ namespace Tahaluf.UL.Infra.Repository
             dbContext = _dbContext;
         }
 
-        public Footerul GetFooterul()
+        public Footerul GetFooter()
         {
-         var result = dbContext.Connection.QueryFirstOrDefault<Footerul>("FOOTERUL_PACKAGE.GETALLFOOTERUL", commandType: CommandType.StoredProcedure);
-
+            var result = dbContext.Connection.QueryFirstOrDefault<Footerul>("FOOTERUL_PACKAGE.GETALLFOOTERUL", commandType: CommandType.StoredProcedure);
             return result;
-
         }
 
-       public bool UpdateFooterul(Footerul foter)
+       public bool UpdateFooter(Footerul footer)
         {
             var p = new DynamicParameters();
-            p.Add("F_BOOK", foter.Facebook, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Tweet", foter.Twitter, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("INSTA", foter.Instagram, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("DESCRP", foter.Small_Desc, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
+            p.Add("F_BOOK", footer.Facebook, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Tweet", footer.Twitter, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("INSTA", footer.Instagram, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DESCRP", footer.Small_Desc, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("FOOTERUL_PACKAGE.UPDATEFOOTERUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-       
     }
 }

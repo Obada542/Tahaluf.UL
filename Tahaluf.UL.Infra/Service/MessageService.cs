@@ -15,14 +15,10 @@ namespace Tahaluf.UL.Infra.Service
         {
             messageRepository = _messageRepository;
         }
-
-
         public List<Messagesul> GetAllMessages()
         {
             return messageRepository.GetAllMessages();
         }
-
-
         public bool CreateMessage(Messagesul messagesul)
         {
             return messageRepository.CreateMessage(messagesul);

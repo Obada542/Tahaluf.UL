@@ -13,27 +13,19 @@ namespace Tahaluf.UL.Infra.Repository
     public class StudentRepository : IStudentRepository
     {
         private readonly IDbContext DbContext;
-
-
         public StudentRepository(IDbContext _DbContext)
         {
             DbContext = _DbContext;
         }
-
-
         public bool CreateStudent(StudentUL student)
         {
             var p = new DynamicParameters();
             p.Add("FirstName", student.First_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LastName", student.Last_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LoginId", student.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-
             IEnumerable<StudentUL> result = DbContext.Connection.Query<StudentUL>("StudentUL_Package.CreateStudent", p, commandType: CommandType.StoredProcedure);
 
             return true;
-
-
         }
 
         public bool DeleteStudent(int id)
@@ -42,15 +34,12 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("StudentId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             DbContext.Connection.ExecuteAsync("StudentUL_Package.DeleteStudent", p, commandType: CommandType.StoredProcedure);
             return true;
-
         }
 
         public List<StudentUL> GetAllStudents()
         {
             IEnumerable<StudentUL> result = DbContext.Connection.Query<StudentUL>("StudentUL_Package.GetAllStudent", commandType: CommandType.StoredProcedure);
             return result.ToList();
-
-
         }
 
         public bool UpdateStudent(StudentUL student)
@@ -60,13 +49,9 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("FirstName", student.First_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LastName", student.Last_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LoginId", student.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-
             var result = DbContext.Connection.ExecuteAsync("StudentUL_Package.UpdateStudent", p, commandType: CommandType.StoredProcedure);
 
             return true;
-
-
         }
     }
 }

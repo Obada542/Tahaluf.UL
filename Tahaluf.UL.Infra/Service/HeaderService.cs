@@ -15,29 +15,14 @@ namespace Tahaluf.UL.Infra.Service
         {
             headerRepository = _headerRepository;
         }
-
-
         public Headerul GetHeader()
         {
             return headerRepository.GetHeader();
         }
 
-        public bool CreateHeader(Headerul headerul)
-        {
-            return headerRepository.CreateHeader(headerul);
-
-        }
-
         public bool UpdateHeader(Headerul headerul)
         {
             return headerRepository.UpdateHeader(headerul);
-
-        }
-
-        public string DeleteHeader()
-        {
-            return headerRepository.DeleteHeader();
-
         }
     }
 }

@@ -19,16 +19,13 @@ namespace Tahaluf.UL.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public Contactul GetContactUl()
+        public Contactul GetContact()
         {
             var result = DbContext.Connection.QueryFirstOrDefault<Contactul>("CONTACTUL_PACKAGE.GETALLCONTACTUL", commandType: CommandType.StoredProcedure);
             return result;
         }
 
-      
-
-
-       public bool UpdateContactUl(Contactul contact)
+       public bool UpdateContact(Contactul contact)
         {
             var p = new DynamicParameters();
             p.Add("contact_Title", contact.TITLE, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -37,8 +34,6 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("MAIL", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phone_Numbers", contact.Numbers, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Adress", contact.Addresses, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
             var result = DbContext.Connection.ExecuteAsync("CONTACTUL_PACKAGE.UPDATECONTACTUL", p, commandType: CommandType.StoredProcedure);
             return true;
         }

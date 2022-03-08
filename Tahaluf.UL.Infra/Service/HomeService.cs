@@ -15,25 +15,24 @@ namespace Tahaluf.UL.Infra.Service
             homeRepository = _homeRepository;
         }
 
-        public List<Homeul> GetAllHomeul()
+        public List<Homeul> GetAllSliders()
         {
-            return homeRepository.GetAllHomeul();
+            return homeRepository.GetAllSliders();
         }
 
-       public bool CreateHomeul(Homeul hom)
+       public bool CreateSlider(Homeul home)
         {
-            return homeRepository.CreateHomeul(hom);
+            return homeRepository.CreateSlider(home);
         }
 
-       public bool UpdateHomeul(Homeul hom)
+       public bool UpdateSlider(Homeul home)
         {
-            return homeRepository.UpdateHomeul(hom);
+            return homeRepository.UpdateSlider(home);
         }
 
-       public bool DeleteHomeul(int id)
+       public bool DeleteSlider(int id)
         {
-            return homeRepository.DeleteHomeul(id);
+            return homeRepository.DeleteSlider(id);
         }
-
     }
 }

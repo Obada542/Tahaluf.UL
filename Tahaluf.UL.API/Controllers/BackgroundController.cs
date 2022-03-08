@@ -20,38 +20,27 @@ namespace Tahaluf.UL.API.Controllers
             backgroundService = _backgroundService;
         }
 
-
         [HttpGet]
+        [ProducesResponseType(typeof(List<Backgroundsul>), StatusCodes.Status200OK)]
         [Route("GetBackground")]
-        public List<Backgroundsul> GetAllBackgroundUl()
+        public List<Backgroundsul> GetAllBackgrounds()
         {
-            return backgroundService.GetAllBackgroundUl();
+            return backgroundService.GetAllBackgrounds();
         }
 
         [HttpPost]
         [Route("CreateBackground")]
-        public bool CreateBackgroungUl([FromBody]Backgroundsul back)
+        public bool CreateBackground([FromBody] Backgroundsul back)
         {
-            return backgroundService.CreateBackgroungUl(back);
+            return backgroundService.CreateBackground(back);
         }
 
-
-        [HttpPatch]
+        [HttpPut]
         [Route("UpdateBackground")]
-        public bool UpdateBackgroundUl([FromBody]Backgroundsul back)
+        public bool UpdateBackground([FromBody] Backgroundsul back)
         {
-            return backgroundService.UpdateBackgroundUl(back);
+            return backgroundService.UpdateBackground(back);
         }
-
-        [HttpDelete]
-        [Route("DeleteBackground/{page}")]
-        public bool DeleteBackgroundUl(string page)
-        {
-            return backgroundService.DeleteBackgroundUl(page);
-        }
-
-
-
 
     }
 }

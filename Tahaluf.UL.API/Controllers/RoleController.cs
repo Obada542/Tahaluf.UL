@@ -28,20 +28,17 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpPost]
-        public bool CreateRole(Roleul roleul)
+        public bool CreateRole([FromBody] Roleul role)
         {
-            return roleService.CreateRole(roleul);
+            return roleService.CreateRole(role);
         }
-
 
         [HttpPut]
-        [Route("Update/{id}")]
-        public bool UpdateRole([FromBody] Roleul roleul)
+        [Route("Update")]
+        public bool UpdateRole([FromBody] Roleul role)
         {
-            return roleService.UpdateRole(roleul);
+            return roleService.UpdateRole(role);
         }
-
-
 
         [HttpDelete]
         [Route("Delete/{id}")]

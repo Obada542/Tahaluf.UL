@@ -7,14 +7,8 @@ namespace Tahaluf.UL.Core.Repository
 {
    public interface IBackgroundsulRepository
     {
-        List<Backgroundsul> GetAllBackgroundUl();
-
-        bool CreateBackgroungUl(Backgroundsul back);
-
-
-        bool UpdateBackgroundUl(Backgroundsul back);
-
-
-        bool DeleteBackgroundUl(string page);
+        List<Backgroundsul> GetAllBackgrounds();
+        bool CreateBackground(Backgroundsul back);
+        bool UpdateBackground(Backgroundsul back);
     }
 }

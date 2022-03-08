@@ -15,14 +15,14 @@ namespace Tahaluf.UL.Infra.Service
             aboutulRepository = _aboutulRepository;
         }
 
-       public Aboutul GetAboutUl()
+       public Aboutul GetAbout()
         {
-            return aboutulRepository.GetAboutUl();
+            return aboutulRepository.GetAbout();
         }
 
-        public bool UpdateAbouttUl(Aboutul about)
+        public bool UpdateAbout(Aboutul about)
         {
-            return aboutulRepository.UpdateAbouttUl(about);
+            return aboutulRepository.UpdateAbout(about);
         }
        
 

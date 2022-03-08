@@ -17,22 +17,18 @@ namespace Tahaluf.UL.API.Controllers
             studentService = _studentService;
         }
 
-
         [HttpPost]
         public bool CreateStudent([FromBody] StudentUL student)
         {
             return studentService.CreateStudent(student);
         }
 
-
         [HttpDelete]
         [Route("delete/{id}")]
-
         public bool DeleteStudent(int id)
         {
             return studentService.DeleteStudent(id);
         }
-
 
         [HttpPut]
         public bool UpdateStudent([FromBody] StudentUL student)
@@ -40,8 +36,8 @@ namespace Tahaluf.UL.API.Controllers
             return studentService.UpdateStudent(student);
         }
 
-
         [HttpGet]
+        [ProducesResponseType(typeof(List<StudentUL>), StatusCodes.Status200OK)]
         public List<StudentUL> GetAllStudents()
         {
             return studentService.GetAllStudents();

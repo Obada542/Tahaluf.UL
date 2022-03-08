@@ -21,7 +21,6 @@ namespace Tahaluf.UL.API.Controllers
         public bool CreateAccountant([FromBody] AccountantUL accountant)
         {
             return accountantService.CreateAccountant(accountant);
-
         }
 
         [HttpDelete]
@@ -35,10 +34,10 @@ namespace Tahaluf.UL.API.Controllers
         public bool UpdateAccountant([FromBody] AccountantUL accountant)
         {
             return accountantService.UpdateAccountant(accountant);
-
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(List<AccountantUL>), StatusCodes.Status200OK)]
         public List<AccountantUL> GetAllAccountants()
         {
             return accountantService.GetAllAccountants();

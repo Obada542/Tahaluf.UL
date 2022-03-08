@@ -15,29 +15,21 @@ namespace Tahaluf.UL.Infra.Service
         {
             loginRepository = _loginRepository;
         }
-
-
         public List<Loginul> GetAllLogins()
         {
             return loginRepository.GetAllLogins();
         }
-
-
         public bool CreateLogin(Loginul loginul)
         {
             return loginRepository.CreateLogin(loginul);
         }
-
-
         public bool UpdateLogin(Loginul loginul)
         {
             return loginRepository.UpdateLogin(loginul);
         }
-
         public string DeleteLogin(int id)
         {
             return loginRepository.DeleteLogin(id);
         }
-
     }
 }

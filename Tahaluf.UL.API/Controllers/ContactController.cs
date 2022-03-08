@@ -21,23 +21,20 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetContacts")]
-        public Contactul GetContactUl()
+        [ProducesResponseType(typeof(Contactul), StatusCodes.Status200OK)]
+        [Route("GetContact")]
+        public Contactul GetContact()
         {
-            return contactService.GetContactUl();
+            return contactService.GetContact();
         }
 
-
-
-        [HttpPatch]
+        [HttpPut]
         [Route("UpdateContact")]
-        public bool UpdateContactUl([FromBody] Contactul contact)
+        public bool UpdateContact([FromBody] Contactul contact)
         {
-            return contactService.UpdateContactUl(contact);
+            return contactService.UpdateContact(contact);
 
         }
-
-        
 
     }
 }
