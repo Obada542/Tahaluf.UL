@@ -34,8 +34,20 @@ namespace Tahaluf.UL.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(corsOptions =>
+            {
+                corsOptions.AddPolicy("x",
+                builder =>
+                {
+    //builder.WithOrigins("http://127.0.0.1:4200", "http://localhost:4200", "https://localhost:4200")
+    // .AllowAnyHeader()
+    // .AllowAnyMethod();
 
-            
+
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
 
@@ -122,7 +134,7 @@ namespace Tahaluf.UL.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("x");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
