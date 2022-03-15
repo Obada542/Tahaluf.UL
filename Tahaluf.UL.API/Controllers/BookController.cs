@@ -60,7 +60,7 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.GetAllBooksByLibrary(name);
         }
-        [HttpPost]
+        [HttpPut]
         [Route("updatesold/{id}")]
         public bool UpdateBookSold(int id)
         {
