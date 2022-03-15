@@ -32,6 +32,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("DIS", book.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("TIMESOLD", book.Nosold, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -49,6 +50,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("DIS", book.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("TIMESOLD", book.Nosold, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -75,6 +77,13 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("lib_name", name, dbType: DbType.String, direction: ParameterDirection.Input);
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.GETALLBOOKSBYLIBRARY", p, commandType: CommandType.StoredProcedure);
             return books.ToList();
+        }
+        public bool UpdateBookSold(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("BOOK_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var updateBook = _dbContext.Connection.ExecuteAsync("BOOKUL_PACKAGE.UPDATEBOOKSOLD", p, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
     }

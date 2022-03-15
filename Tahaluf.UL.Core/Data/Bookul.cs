@@ -19,6 +19,7 @@ namespace Tahaluf.UL.Core.Data
         public int? Quantity { get; set; }
         public double? Discount { get; set; }
         public string Image { get; set; }
+        public int? Nosold { get; set; }
         public int? Library_Id { get; set; }
         public string Category { get; set; }
     }

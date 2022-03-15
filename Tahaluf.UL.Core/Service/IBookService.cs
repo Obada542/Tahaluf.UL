@@ -14,6 +14,7 @@ namespace Tahaluf.UL.Core.Service
         bool UpdateBook(Bookul book);
         bool DeleteBook(int id);
         List<Bookul> SearchBook(string name);
+        bool UpdateBookSold(int id);
 
 
     }

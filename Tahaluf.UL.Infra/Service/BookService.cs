@@ -39,5 +39,10 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _bookRepository.GetAllBooksByLibrary(name);
         }
+        public bool UpdateBookSold(int id)
+        {
+            return _bookRepository.UpdateBookSold(id);
+
+        }
     }
 }
