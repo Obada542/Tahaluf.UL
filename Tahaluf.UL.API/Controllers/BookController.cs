@@ -62,7 +62,7 @@ namespace Tahaluf.UL.API.Controllers
         }
         [HttpGet]
         [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
-        [Route("getbestbooks/{name}")]
+        [Route("getbestbooks")]
         public List<Bookul> GetBestBooks()
         {
             return _bookService.GetBestBooks();
