@@ -60,6 +60,13 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.GetAllBooksByLibrary(name);
         }
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
+        [Route("getbestbooks/{name}")]
+        public List<Bookul> GetBestBooks()
+        {
+            return _bookService.GetBestBooks();
+        }
         [HttpPut]
         [Route("updatesold/{id}")]
         public bool UpdateBookSold(int id)

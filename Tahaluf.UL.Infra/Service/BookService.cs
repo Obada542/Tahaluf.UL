@@ -42,7 +42,10 @@ namespace Tahaluf.UL.Infra.Service
         public bool UpdateBookSold(int id)
         {
             return _bookRepository.UpdateBookSold(id);
-
+        }
+        public List<Bookul> GetBestBooks()
+        {
+            return _bookRepository.GetBestBooks();
         }
     }
 }

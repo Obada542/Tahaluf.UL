@@ -85,6 +85,10 @@ namespace Tahaluf.UL.Infra.Repository
             var updateBook = _dbContext.Connection.ExecuteAsync("BOOKUL_PACKAGE.UPDATEBOOKSOLD", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
+        public List<Bookul> GetBestBooks()
+        {
+            var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.getbestbooks", commandType: CommandType.StoredProcedure);
+            return books.ToList();
+        }
     }
 }
