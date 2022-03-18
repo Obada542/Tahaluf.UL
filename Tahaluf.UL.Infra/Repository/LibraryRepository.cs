@@ -29,6 +29,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("NAME",library.Library_Name,dbType:DbType.String,direction:ParameterDirection.Input);
             p.Add("LOCA", library.Location, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PIC", library.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DESCRIP", library.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             var newlibrary = _dbContext.Connection.ExecuteAsync("LIBRARY_PACKAGE.CREATELIBRARY", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -39,6 +40,8 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("NAME", library.Library_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LOCA", library.Location, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PIC", library.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DESCRIP", library.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+
             var newlibrary = _dbContext.Connection.ExecuteAsync("LIBRARY_PACKAGE.UPDATELIBRARY", p, commandType: CommandType.StoredProcedure);
             return true;
         }
