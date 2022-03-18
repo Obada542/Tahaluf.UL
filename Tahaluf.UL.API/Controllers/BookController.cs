@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Tahaluf.UL.Core.Data;
 using Tahaluf.UL.Core.Service;
 
@@ -73,5 +75,29 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.UpdateBookSold(id);
         }
-    }
+        [HttpPost]
+        [Route("uploadImage")]
+        public Bookul UploadImage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_"
+                + file.FileName;
+                var fullPath = Path.Combine(@"C:\Users\obada\Tahaluf.UL.Angular\src\assets\Images", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Bookul Item = new Bookul();
+                Item.Image = fileName;
+                return Item;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+}
+
 }

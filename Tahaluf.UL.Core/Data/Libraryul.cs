@@ -11,5 +11,7 @@ namespace Tahaluf.UL.Core.Data
         public int Id { get; set; }
         public string Library_Name { get; set; }
         public string Location { get; set; }
+        public string Image { get; set; }
+
     }
 }
