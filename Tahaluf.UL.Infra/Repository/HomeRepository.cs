@@ -42,6 +42,7 @@ namespace Tahaluf.UL.Infra.Repository
         public bool UpdateSlider(Homeul slider)
         {
             var p = new DynamicParameters();
+            p.Add("h_id", slider.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Home_Title", slider.Title, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("sub_Home_Title", slider.Sub_Title, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", slider.Image, dbType: DbType.String, direction: ParameterDirection.Input);
