@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.UL.Core.Data;
@@ -46,6 +47,28 @@ namespace Tahaluf.UL.API.Controllers
         public bool DeleteHomeul(int id)
         {
             return homeService.DeleteSlider(id);
+        }
+        [HttpPost]
+        [Route("uploadImage")]
+        public Homeul UploadImage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine(@"C:\Users\obada\downloads\Tahaluf.UL.angular\src\assets\Images", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Homeul Item = new Homeul();
+                Item.Image = fileName;
+                return Item;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

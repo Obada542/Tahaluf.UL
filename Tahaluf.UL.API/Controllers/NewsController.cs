@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Tahaluf.UL.Core.Data;
 using Tahaluf.UL.Core.Service;
 
@@ -12,40 +10,43 @@ namespace Tahaluf.UL.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BackgroundController : ControllerBase
+    public class NewsController : ControllerBase
     {
-        private readonly IBackgroundService backgroundService;
+        private readonly INewsService _newsService;
 
-        public BackgroundController(IBackgroundService _backgroundService)
+        public NewsController(INewsService _newsService)
         {
-            backgroundService = _backgroundService;
-        }
-
-        [HttpGet]
-        [ProducesResponseType(typeof(List<Backgroundsul>), StatusCodes.Status200OK)]
-        [Route("GetBackground")]
-        public List<Backgroundsul> GetAllBackgrounds()
-        {
-            return backgroundService.GetAllBackgrounds();
+            this._newsService = _newsService;
         }
 
         [HttpPost]
-        [Route("CreateBackground")]
-        public bool CreateBackground([FromBody] Backgroundsul back)
+        public bool CreateNews([FromBody] News news)
         {
-            return backgroundService.CreateBackground(back);
+            return _newsService.CreateNews(news);
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public bool DeleteNews(int id)
+        {
+            return _newsService.DeleteNews(id);
         }
 
         [HttpPut]
-        [Route("UpdateBackground")]
-        public bool UpdateBackground([FromBody] Backgroundsul back)
+        public bool UpdateNews([FromBody] News news)
         {
-            return backgroundService.UpdateBackground(back);
+            return _newsService.UpdateNews(news);
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(List<News>), StatusCodes.Status200OK)]
+        public List<News> GetAllNews()
+        {
+            return _newsService.GetAllNews();
+        }
         [HttpPost]
         [Route("uploadImage")]
-        public Backgroundsul UploadImage()
+        public News UploadImage()
         {
             try
             {
@@ -56,8 +57,8 @@ namespace Tahaluf.UL.API.Controllers
                 {
                     file.CopyTo(stream);
                 }
-                Backgroundsul Item = new Backgroundsul();
-                Item.Background = fileName;
+                News Item = new News();
+                Item.Image = fileName;
                 return Item;
             }
             catch (Exception e)

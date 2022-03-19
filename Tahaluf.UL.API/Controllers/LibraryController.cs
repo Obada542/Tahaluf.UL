@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Tahaluf.UL.Core.Data;
 using Tahaluf.UL.Core.Service;
 
@@ -59,6 +61,28 @@ namespace Tahaluf.UL.API.Controllers
         public List<Libraryul> GetLibraryByLocation(string location)
         {
             return _libraryService.GetLibraryByLocation(location);
+        }
+        [HttpPost]
+        [Route("uploadImage")]
+        public Libraryul UploadImage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine(@"C:\Users\obada\downloads\Tahaluf.UL.angular\src\assets\Images", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Libraryul Item = new Libraryul();
+                Item.Image = fileName;
+                return Item;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

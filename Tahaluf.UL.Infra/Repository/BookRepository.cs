@@ -27,12 +27,9 @@ namespace Tahaluf.UL.Infra.Repository
             var p = new DynamicParameters();
             p.Add("NAME", book.Book_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("AUTH", book.Author, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("PUBLISHED", book.Published_Date, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("P", book.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("DIS", book.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("TIMESOLD", book.Nosold, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -45,12 +42,9 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("BOOK_ID", book.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("NAME", book.Book_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("AUTH", book.Author, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("PUBLISHED", book.Published_Date, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("P", book.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("DIS", book.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("TIMESOLD", book.Nosold, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);

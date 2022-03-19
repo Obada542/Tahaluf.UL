@@ -105,6 +105,12 @@ namespace Tahaluf.UL.API
             services.AddScoped<IRecommentRepository, RecommentRepository>();
             services.AddScoped<IRecommentService, RecommentService>();
 
+            services.AddScoped<INewsRepository, NewsRepository>();
+            services.AddScoped<INewsService, NewsService>();
+
+            services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            services.AddScoped<ITestimonialService, TestimonialService>();
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
