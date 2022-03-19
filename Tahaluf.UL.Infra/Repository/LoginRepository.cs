@@ -42,7 +42,7 @@ namespace Tahaluf.UL.Infra.Repository
         public bool UpdateLogin(Loginul login)
         {
             var p = new DynamicParameters();
-            p.Add("(logId  ", login.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("logId", login.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("UNAME", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PASS", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("EMAIL1", login.Email, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -52,7 +52,6 @@ namespace Tahaluf.UL.Infra.Repository
 
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.UPDATELOGIN", p, commandType: CommandType.StoredProcedure);
             return true;
-
         }
 
         public string DeleteLogin(int id)
@@ -61,8 +60,6 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("(logId  ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.DELETELOGIN", p, commandType: CommandType.StoredProcedure);
             return "Deleted Successfully";
-
-
         }
 
     }
