@@ -34,6 +34,27 @@ namespace Tahaluf.UL.API.Controllers
         {
             return headerService.UpdateHeader(headerul);
         }
-
+        [HttpPost]
+        [Route("uploadImage")]
+        public Headerul UploadImage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine(@"C:\Users\obada\downloads\Tahaluf.UL.angular\src\assets\Images", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Headerul Item = new Headerul();
+                Item.Logo = fileName;
+                return Item;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }
