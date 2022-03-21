@@ -12,6 +12,6 @@ namespace Tahaluf.UL.Core.Repository
         List<StudentLoaningDTO> GetStudentBorrowing(int id);
         string CreateBorrowingRequset(Loaningul loaning);
         string UpdateBorrowingRequset(Loaningul loaning);
-        List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates);
+        List<Loaningul> GetBorrowingsByDates(LoanSearchDatesDTO dates);
     }
 }

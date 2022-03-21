@@ -15,7 +15,5 @@ namespace Tahaluf.UL.Core.DTO
         public string Library_name { get; set; }
         public string Location { get; set; }
         public float? Discount { get; set; }
-
-
     }
 }

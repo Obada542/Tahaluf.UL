@@ -25,7 +25,7 @@ namespace Tahaluf.UL.Infra.Service
            return _loaningRepository.GetAllBorrowings();
         }
 
-        public List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates)
+        public List<Loaningul> GetBorrowingsByDates(LoanSearchDatesDTO dates)
         {
             return _loaningRepository.GetBorrowingsByDates(dates);
         }

@@ -42,13 +42,13 @@ namespace Tahaluf.UL.Infra.Repository
             var newloan = _dbContext.Connection.ExecuteAsync("loaningul_package.updateborrowing", p, commandType: CommandType.StoredProcedure);
             return "Success Update.";
         }
-        public List<LoaningSearchDTO> GetBorrowingsByDates(LoanSearchDatesDTO dates)
+        public List<Loaningul> GetBorrowingsByDates(LoanSearchDatesDTO dates)
         {
             var p = new DynamicParameters();
             p.Add("enddate", dates.End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("startdate", dates.Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
 
-            var loan = _dbContext.Connection.Query<LoaningSearchDTO>("loaningul_package.searchinterval",p, commandType: CommandType.StoredProcedure);
+            var loan = _dbContext.Connection.Query<Loaningul>("loaningul_package.searchinterval",p, commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
         public List<StudentLoaningDTO> GetStudentBorrowing(int id)

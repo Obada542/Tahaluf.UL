@@ -38,8 +38,8 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet,Route("SearchInterval")]
-        [ProducesResponseType(typeof(List<LoaningSearchDTO>), StatusCodes.Status200OK)]
-        public List<LoaningSearchDTO> GetBorrowingsByDates([FromBody]LoanSearchDatesDTO dates)
+        [ProducesResponseType(typeof(List<Loaningul>), StatusCodes.Status200OK)]
+        public List<Loaningul> GetBorrowingsByDates([FromBody]LoanSearchDatesDTO dates)
         {
             return _loaningService.GetBorrowingsByDates(dates);
         }
