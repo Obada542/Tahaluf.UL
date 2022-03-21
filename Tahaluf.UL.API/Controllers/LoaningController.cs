@@ -50,6 +50,5 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _loaningService.GetStudentBorrowing(id);
         }
-
     }
 }

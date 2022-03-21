@@ -19,7 +19,7 @@ namespace Tahaluf.UL.Infra.Service
         {
             return loginRepository.GetAllLogins();
         }
-        public bool CreateLogin(Loginul loginul)
+        public int CreateLogin(Loginul loginul)
         {
             return loginRepository.CreateLogin(loginul);
         }

@@ -29,7 +29,7 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpPost]
-        public bool CreateLogin([FromBody] Loginul login)
+        public int CreateLogin([FromBody] Loginul login)
         {
             return loginService.CreateLogin(login);
         }
@@ -55,7 +55,7 @@ namespace Tahaluf.UL.API.Controllers
             {
                 var file = Request.Form.Files[0];
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-                var fullPath = Path.Combine(@"C:\Users\obada\downloads\Tahaluf.UL.angular\src\assets\Images", fileName);
+                var fullPath = Path.Combine(@"C:\Users\obada\downloads\tahaluf.UL.angular\src\assets\Images", fileName);
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);

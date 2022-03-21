@@ -25,7 +25,7 @@ namespace Tahaluf.UL.Infra.Repository
             return result.ToList();
         }
 
-        public bool CreateLogin(Loginul login)
+        public int CreateLogin(Loginul login)
         {
             var p = new DynamicParameters();
             p.Add("UNAME", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -36,7 +36,11 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("ROLEID ", login.Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.CREATELOGIN", p, commandType: CommandType.StoredProcedure);
-            return true;
+            var email = new DynamicParameters();
+            email.Add("eemail", login.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var id = DbContext.Connection.QueryFirstOrDefault<Loginul>("LOGIN_PACKAGE.GETIDBYEMAIL", email, commandType: CommandType.StoredProcedure);
+            return id.Id;
         }
 
         public bool UpdateLogin(Loginul login)
@@ -57,7 +61,7 @@ namespace Tahaluf.UL.Infra.Repository
         public string DeleteLogin(int id)
         {
             var p = new DynamicParameters();
-            p.Add("(logId  ", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("logId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.DELETELOGIN", p, commandType: CommandType.StoredProcedure);
             return "Deleted Successfully";
         }

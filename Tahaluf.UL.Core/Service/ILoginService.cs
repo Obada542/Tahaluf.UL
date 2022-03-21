@@ -9,7 +9,7 @@ namespace Tahaluf.UL.Core.Service
     {
         List<Loginul> GetAllLogins();
 
-        bool CreateLogin(Loginul loginul);
+        int CreateLogin(Loginul loginul);
 
         bool UpdateLogin(Loginul loginul);
 

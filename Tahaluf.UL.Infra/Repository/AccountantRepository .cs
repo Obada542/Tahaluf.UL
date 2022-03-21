@@ -26,7 +26,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("Sal", accountant.Salary, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Addres", accountant.Address, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LoginId", accountant.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<AccountantUL> result = DbContext.Connection.Query<AccountantUL>("AccountantUL_Package.CreateAccountant", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<AccountantUL> result = DbContext.Connection.Query<AccountantUL>("AccountantUL_Package.createaccountant", p, commandType: CommandType.StoredProcedure);
 
             return true;
         }
@@ -40,7 +40,7 @@ namespace Tahaluf.UL.Infra.Repository
         }
         public List<AccountantUL> GetAllAccountants()
         {
-            IEnumerable<AccountantUL> result = DbContext.Connection.Query<AccountantUL>("AccountantUL_Package.GetAllAccountant", commandType: CommandType.StoredProcedure);
+            var result = DbContext.Connection.Query<AccountantUL>("AccountantUL_Package.GetAllAccountant", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool UpdateAccountant(AccountantUL accountant)
