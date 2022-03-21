@@ -49,9 +49,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("AccountantId", accountant.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Sal", accountant.Salary, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Addres", accountant.Address, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LoginId", accountant.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("AccountantUL_Package.UpdateAccountant", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
     }

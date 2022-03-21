@@ -48,9 +48,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("StudentId", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("FirstName", student.First_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LastName", student.Last_Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LoginId", student.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("StudentUL_Package.UpdateStudent", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
     }
