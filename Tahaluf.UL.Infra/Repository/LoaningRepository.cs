@@ -29,6 +29,9 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("endDate", loaning.End_Date, dbType: DbType.Date,direction:ParameterDirection.Input);
             p.Add("book", loaning.Book_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("student", loaning.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p", loaning.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("bookName", loaning.Book_Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("studentName", loaning.Student_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             var newloan = _dbContext.Connection.ExecuteAsync("loaningul_package.createborrowing", p, commandType: CommandType.StoredProcedure);
             return "Success.";
         }
@@ -47,7 +50,6 @@ namespace Tahaluf.UL.Infra.Repository
             var p = new DynamicParameters();
             p.Add("enddate", dates.End_Date, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("startdate", dates.Start_Date, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var loan = _dbContext.Connection.Query<Loaningul>("loaningul_package.searchinterval", p, commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
@@ -58,6 +60,5 @@ namespace Tahaluf.UL.Infra.Repository
             var loan = _dbContext.Connection.Query<StudentLoaningDTO>("loaningul_package.getstudentborrowings", p, commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
-
     }
 }

@@ -16,5 +16,8 @@ namespace Tahaluf.UL.Core.Data
         public float? Fines { get; set; }
         public int? Book_Id { get; set; }
         public int? Student_Id { get; set; }
+        public string Book_Name { get; set; }
+        public string Student_Name { get; set; }
+        public float? Price { get; set; }
     }
 }
