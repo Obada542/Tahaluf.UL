@@ -75,6 +75,12 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.UpdateBookSold(id);
         }
+        [HttpPut]
+        [Route("ChangeBookDiscount")]
+        public bool ChangeBookDiscount([FromBody] float discount)
+        {
+            return _bookService.ChangeBookDiscount(discount);
+        }
         [HttpPost]
         [Route("uploadImage")]
         public Bookul UploadImage()

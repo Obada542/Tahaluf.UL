@@ -84,5 +84,13 @@ namespace Tahaluf.UL.Infra.Repository
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.getbestbooks", commandType: CommandType.StoredProcedure);
             return books.ToList();
         }
+
+        public bool ChangeBookDiscount(float discount)
+        {
+            var p = new DynamicParameters();
+            p.Add("dis", discount, dbType: DbType.Double, direction: ParameterDirection.Input);
+            _dbContext.Connection.ExecuteAsync("BOOKUL_PACKAGE.changediscount", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

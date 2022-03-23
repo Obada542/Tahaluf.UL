@@ -45,10 +45,10 @@ namespace Tahaluf.UL.Infra.Repository
         public List<Loaningul> GetBorrowingsByDates(LoanSearchDatesDTO dates)
         {
             var p = new DynamicParameters();
-            p.Add("enddate", dates.End_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("startdate", dates.Start_Date, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("enddate", dates.End_Date, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("startdate", dates.Start_Date, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            var loan = _dbContext.Connection.Query<Loaningul>("loaningul_package.searchinterval",p, commandType: CommandType.StoredProcedure);
+            var loan = _dbContext.Connection.Query<Loaningul>("loaningul_package.searchinterval", p, commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
         public List<StudentLoaningDTO> GetStudentBorrowing(int id)

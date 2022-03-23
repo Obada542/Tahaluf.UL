@@ -15,6 +15,6 @@ namespace Tahaluf.UL.Core.Repository
         List<Bookul> SearchBook(string name);
         bool UpdateBookSold(int id);
         List<Bookul> GetBestBooks();
-        
+        bool ChangeBookDiscount(float discount);
     }
 }

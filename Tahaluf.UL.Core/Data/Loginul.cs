@@ -13,6 +13,7 @@ namespace Tahaluf.UL.Core.Data
         public string Username { get; set; }
         public string Email { get; set; }
         public DateTime? Birthday { get; set; }
+        public DateTime? Created_Time { get; set; }
         public string Image { get; set; }
         public string Password { get; set; }
         public int? Role_Id { get; set; }

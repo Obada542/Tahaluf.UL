@@ -37,7 +37,7 @@ namespace Tahaluf.UL.API.Controllers
             return _loaningService.UpdateBorrowingRequset(loaning);
         }
 
-        [HttpGet,Route("SearchInterval")]
+        [HttpPost,Route("SearchInterval")]
         [ProducesResponseType(typeof(List<Loaningul>), StatusCodes.Status200OK)]
         public List<Loaningul> GetBorrowingsByDates([FromBody]LoanSearchDatesDTO dates)
         {

@@ -38,7 +38,7 @@ namespace Tahaluf.UL.Infra.Repository
         public string DeleteMessage(int id)
         {
             var p = new DynamicParameters();
-            p.Add("(MsgId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("MsgId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("MESSAGE_PACKAGE.DELETEMESSAGE", p, commandType: CommandType.StoredProcedure);
             
             return "Deleted Successfully";

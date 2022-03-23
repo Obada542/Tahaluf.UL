@@ -47,5 +47,9 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _bookRepository.GetBestBooks();
         }
+        public bool ChangeBookDiscount(float discount)
+        {
+            return _bookRepository.ChangeBookDiscount(discount);
+        }
     }
 }
