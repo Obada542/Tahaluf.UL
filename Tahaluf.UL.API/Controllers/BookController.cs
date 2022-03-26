@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Service;
 
 namespace Tahaluf.UL.API.Controllers
@@ -68,6 +69,20 @@ namespace Tahaluf.UL.API.Controllers
         public List<Bookul> GetBestBooks()
         {
             return _bookService.GetBestBooks();
+        }
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
+        [Route("GetAvailableBook")]
+        public List<Bookul> GetAvailableBook()
+        {
+            return _bookService.GetAvailableBook();
+        }
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Category>), StatusCodes.Status200OK)]
+        [Route("GetCategories")]
+        public List<Category> GetCategories()
+        {
+            return _bookService.GetCategories();
         }
         [HttpPut]
         [Route("updatesold/{id}")]

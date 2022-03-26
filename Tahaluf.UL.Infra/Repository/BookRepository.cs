@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.UL.Core.Common;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 
 namespace Tahaluf.UL.Infra.Repository
@@ -20,6 +21,16 @@ namespace Tahaluf.UL.Infra.Repository
         public List<Bookul> GetAllBooks()
         {
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.GETALLBOOKS", commandType: CommandType.StoredProcedure);
+            return books.ToList();
+        }
+        public List<Bookul> GetAvailableBook()
+        {
+            var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.getavailablebook", commandType: CommandType.StoredProcedure);
+            return books.ToList();
+        }
+        public List<Category> GetCategories()
+        {
+            var books = _dbContext.Connection.Query<Category>("BOOKUL_PACKAGE.getcategories", commandType: CommandType.StoredProcedure);
             return books.ToList();
         }
         public bool CreateNewBook(Bookul book)

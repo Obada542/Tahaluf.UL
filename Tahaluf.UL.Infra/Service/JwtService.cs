@@ -61,35 +61,34 @@ namespace Tahaluf.UL.Infra.Service
         public string Auth(Loginul loginul)
         {
             var result = jwtRepository.Auth(loginul);
-            var role = jwtRepository.GetRoleNameById(loginul.Role_Id);
-
             if (result == null) return null;
             else
             {
-                //generate token
-                //1.token handler -->
                 var TokenHandler = new JwtSecurityTokenHandler();
-
-                //2.Token Key --> The same as key in StartUp .
                 var TokenKey = Encoding.UTF8.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKEN");
-
-                //3.Descripor --> Payload (in result) + prop (expired date for ex)
+                string role = "Accountant";
+                if(result.Role_Id == 1)
+                {
+                    role = "Admin";
+                }
+                if (result.Role_Id == 2)
+                {
+                    role = "Student";
+                }
                 var TokenDescriptor = new SecurityTokenDescriptor
                 {
-                    //Subject 
                     Subject = new ClaimsIdentity(new Claim[]
                     { 
-                        //result.username
-                        //new Claim (type,vlaue)
-                        new Claim(ClaimTypes.Name, result.Username),
-                        //result.rolename
-                        new Claim (ClaimTypes.Role, role.Role_Name)
+                        new Claim(ClaimTypes.NameIdentifier, result.Username),
+                        new Claim (ClaimTypes.Role, role),
+                        new Claim (ClaimTypes.Email,result.Email),
+                        new Claim (ClaimTypes.MobilePhone,result.Phone),
+                        new Claim (ClaimTypes.DateOfBirth,result.Birthday.ToString(),ClaimValueTypes.DateTime),
+                        new Claim (ClaimTypes.Hash,result.Password)
+
                     }),
 
-                    //Expires
                     Expires = DateTime.UtcNow.AddHours(1),
-
-                    //Signing Credintials  // new SigningCredentials(key,algorithm)
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(TokenKey), SecurityAlgorithms.HmacSha256Signature)
                 };
 

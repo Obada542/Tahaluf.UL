@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 
 namespace Tahaluf.UL.Core.Repository
 {
@@ -16,5 +17,7 @@ namespace Tahaluf.UL.Core.Repository
         bool UpdateBookSold(int id);
         List<Bookul> GetBestBooks();
         bool ChangeBookDiscount(float discount);
+        List<Bookul> GetAvailableBook();
+        List<Category> GetCategories();
     }
 }

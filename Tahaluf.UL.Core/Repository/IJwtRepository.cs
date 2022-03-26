@@ -8,7 +8,5 @@ namespace Tahaluf.UL.Core.Repository
     public interface IJwtRepository
     {
         Loginul Auth(Loginul loginul);
-        Roleul GetRoleNameById(int? id);
-
     }
 }

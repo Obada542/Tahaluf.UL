@@ -22,18 +22,11 @@ namespace Tahaluf.UL.Infra.Repository
         public Loginul Auth(Loginul loginul)
         {
             var p = new DynamicParameters();
-            p.Add("UNAME", loginul.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("mail", loginul.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PASS", loginul.Password, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            IEnumerable<Loginul> result = DbContext.Connection.Query<Loginul>("LOGIN_USER", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Loginul> result = DbContext.Connection.Query<Loginul>("LOGINUSER.login", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
-        }
-        public Roleul GetRoleNameById(int? id)
-        {
-            var p = new DynamicParameters();
-            p.Add("ROLEID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.QueryFirstOrDefault<Roleul>("RolePackage.getrolenamebyid", p, commandType: CommandType.StoredProcedure);
-            return result;
         }
     }
 }

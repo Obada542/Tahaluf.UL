@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 using Tahaluf.UL.Core.Service;
 
@@ -50,6 +51,16 @@ namespace Tahaluf.UL.Infra.Service
         public bool ChangeBookDiscount(float discount)
         {
             return _bookRepository.ChangeBookDiscount(discount);
+        }
+
+        public List<Bookul> GetAvailableBook()
+        {
+            return _bookRepository.GetAvailableBook();
+        }
+
+        public List<Category> GetCategories()
+        {
+            return _bookRepository.GetCategories();
         }
     }
 }

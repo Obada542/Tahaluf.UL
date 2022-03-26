@@ -33,6 +33,8 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("EMAIL1", login.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("BIRTH", login.Birthday, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("IMG", login.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("TEL", login.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
+
             p.Add("ROLEID ", login.Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.CREATELOGIN", p, commandType: CommandType.StoredProcedure);
@@ -52,6 +54,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("EMAIL1", login.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("BIRTH", login.Birthday, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("IMG", login.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("TEL", login.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ROLEID ", login.Role_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("LOGIN_PACKAGE.UPDATELOGIN", p, commandType: CommandType.StoredProcedure);
