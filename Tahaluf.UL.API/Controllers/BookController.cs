@@ -18,7 +18,7 @@ namespace Tahaluf.UL.API.Controllers
         {
             this._bookService = _bookService;
         }
-
+         
         [HttpGet]
         [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
         [Route("GetBooks")]
@@ -64,6 +64,13 @@ namespace Tahaluf.UL.API.Controllers
             return _bookService.GetAllBooksByLibrary(name);
         }
         [HttpGet]
+        [ProducesResponseType(typeof(Bookul), StatusCodes.Status200OK)]
+        [Route("GetBookById/{id}")]
+        public Bookul GetBookById(int id)
+        {
+            return _bookService.GetBookById(id);
+        }
+        [HttpGet]
         [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
         [Route("getbestbooks")]
         public List<Bookul> GetBestBooks()
@@ -96,6 +103,13 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _bookService.ChangeBookDiscount(discount);
         }
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Bookul>), StatusCodes.Status200OK)]
+        [Route("GetNewestBooks")]
+        public List<Bookul> GetNewestBooks()
+        {
+            return _bookService.GetNewestBooks();
+        }
         [HttpPost]
         [Route("uploadImage")]
         public Bookul UploadImage()
@@ -104,7 +118,7 @@ namespace Tahaluf.UL.API.Controllers
             {
                 var file = Request.Form.Files[0];
                 var fileName = Guid.NewGuid().ToString() + "_"+ file.FileName;
-                var fullPath = Path.Combine(@"C:\Users\obada\downloads\tahaluf.ul.angular\src\assets\Images", fileName);
+                var fullPath = Path.Combine(@"C:\Users\obada\Tahaluf.UL.Angular\src\assets\Images", fileName);
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
@@ -118,6 +132,28 @@ namespace Tahaluf.UL.API.Controllers
                 return null;
             }
         }
-}
+        [HttpPost]
+        [Route("uploadPdf")]
+        public Bookul UploadPdf()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                var fullPath = Path.Combine(@"C:\Users\obada\Tahaluf.UL.Angular\src\assets\books", fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Bookul Item = new Bookul();
+                Item.Pdf = fileName;
+                return Item;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+    }
 
 }

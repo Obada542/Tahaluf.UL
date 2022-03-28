@@ -16,9 +16,13 @@ namespace Tahaluf.UL.Core.Service
         List<Bookul> SearchBook(string name);
         bool UpdateBookSold(int id);
         List<Bookul> GetBestBooks();
+        List<Bookul> GetNewestBooks();
+
         bool ChangeBookDiscount(float discount);
         List<Bookul> GetAvailableBook();
         List<Category> GetCategories();
+        Bookul GetBookById(int id);
+
 
     }
 }

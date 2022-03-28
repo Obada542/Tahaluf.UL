@@ -62,5 +62,14 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _bookRepository.GetCategories();
         }
+        public List<Bookul> GetNewestBooks()
+        {
+            return _bookRepository.GetNewestBooks();
+        }
+
+        public Bookul GetBookById(int id)
+        {
+            return _bookRepository.GetBookById(id);
+        }
     }
 }

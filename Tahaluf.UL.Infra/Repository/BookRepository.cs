@@ -23,6 +23,12 @@ namespace Tahaluf.UL.Infra.Repository
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.GETALLBOOKS", commandType: CommandType.StoredProcedure);
             return books.ToList();
         }
+        public List<Bookul> GetNewestBooks()
+        {
+            var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.GETLASTBOOKS", commandType: CommandType.StoredProcedure);
+            return books.ToList();
+        }
+
         public List<Bookul> GetAvailableBook()
         {
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.getavailablebook", commandType: CommandType.StoredProcedure);
@@ -42,6 +48,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FILE", book.Pdf, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var newBook = _dbContext.Connection.ExecuteAsync("BOOKUL_PACKAGE.CREATEBOOK", p,commandType: CommandType.StoredProcedure);
@@ -56,6 +63,7 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("P", book.Price, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("DESCRIPTION", book.Overview, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Q", book.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("FILE", book.Pdf, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHOTO", book.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CATE", book.Category, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LIB_ID", book.Library_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -75,6 +83,13 @@ namespace Tahaluf.UL.Infra.Repository
             p.Add("name", name, dbType: DbType.String, direction: ParameterDirection.Input);
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.searchbook", p, commandType: CommandType.StoredProcedure);
             return books.ToList();
+        }
+        public Bookul GetBookById(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Bookid", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var books = _dbContext.Connection.QueryFirstOrDefault<Bookul>("BOOKUL_PACKAGE.GetBookById", p, commandType: CommandType.StoredProcedure);
+            return books;
         }
         public List<Bookul> GetAllBooksByLibrary(string name)
         {

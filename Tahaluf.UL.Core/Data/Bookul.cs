@@ -13,7 +13,7 @@ namespace Tahaluf.UL.Core.Data
         public int Id { get; set; }
         public string Book_Name { get; set; }
         public string Author { get; set; }
-        public DateTime? Published_Date { get; set; }
+        public DateTime? Published_Date { get; set; } 
         public double? Price { get; set; }
         public string Overview { get; set; }
         public int? Quantity { get; set; }
@@ -22,5 +22,6 @@ namespace Tahaluf.UL.Core.Data
         public int? Nosold { get; set; }
         public int? Library_Id { get; set; }
         public string Category { get; set; }
+        public string Pdf { get; set; }
     }
 }
