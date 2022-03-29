@@ -64,12 +64,12 @@ namespace Tahaluf.UL.Infra.Service
             if (result == null) return null;
             else
             {
-                var TokenHandler = new JwtSecurityTokenHandler();
+                var TokenHandler = new JwtSecurityTokenHandler(); 
                 var TokenKey = Encoding.UTF8.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKEN");
-                string role = "Accountant";
+                string role = "Accountant"; 
                 if(result.Role_Id == 1)
                 {
-                    role = "Admin";
+                    role = "Admin"; 
                 }
                 if (result.Role_Id == 2)
                 {
@@ -79,12 +79,13 @@ namespace Tahaluf.UL.Infra.Service
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     { 
-                        new Claim(ClaimTypes.NameIdentifier, result.Username),
-                        new Claim (ClaimTypes.Role, role),
-                        new Claim (ClaimTypes.Email,result.Email),
-                        new Claim (ClaimTypes.MobilePhone,result.Phone),
+                        new Claim(ClaimTypes.Name, result.Username,ClaimValueTypes.String),
+                        new Claim (ClaimTypes.Role, role,ClaimValueTypes.String),
+                        new Claim (ClaimTypes.SerialNumber, result.Id.ToString(),ClaimValueTypes.Sid),
+                        new Claim (ClaimTypes.Email,result.Email,ClaimValueTypes.Email),
+                        new Claim (ClaimTypes.MobilePhone,result.Phone,ClaimValueTypes.String),
                         new Claim (ClaimTypes.DateOfBirth,result.Birthday.ToString(),ClaimValueTypes.DateTime),
-                        new Claim (ClaimTypes.Hash,result.Password)
+                        new Claim (ClaimTypes.Hash,result.Password,ClaimValueTypes.String)
 
                     }),
 
