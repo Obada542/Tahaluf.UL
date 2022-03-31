@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Service;
 
 namespace Tahaluf.UL.API.Controllers
@@ -42,6 +43,11 @@ namespace Tahaluf.UL.API.Controllers
         {
             return studentService.GetAllStudents();
         }
-
+        [HttpGet,Route("getdata/{loginid}")]
+        [ProducesResponseType(typeof(StudentLoginDTO), StatusCodes.Status200OK)]
+        public StudentLoginDTO GetStudentLoginDetails(int loginid)
+        {
+            return studentService.GetStudentLoginDetails(loginid);
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 using Tahaluf.UL.Core.Service;
 
@@ -27,6 +28,12 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _studentRepository.GetAllStudents();
         }
+
+        public StudentLoginDTO GetStudentLoginDetails(int loginid)
+        {
+            return _studentRepository.GetStudentLoginDetails(loginid);
+        }
+
         public bool UpdateStudent(StudentUL student)
         {
             return _studentRepository.UpdateStudent(student);

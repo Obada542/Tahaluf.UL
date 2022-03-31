@@ -7,6 +7,8 @@ namespace Tahaluf.UL.Core.DTO
     public class StudentLoaningDTO
     {
         public string Book_Name { get; set; }
+        public int? Book_Id { get; set; }
+
         public DateTime? Start_Date { get; set; }
         public DateTime? End_Date { get; set; }
         public float? Fines { get; set; }

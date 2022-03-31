@@ -14,5 +14,6 @@ namespace Tahaluf.UL.Core.Data
         public string Student_Comment { get; set; }
         public int Student_Id { get; set; }
         public int Book_Id { get; set; }
+        public DateTime? Postdate { get; set; }
     }
 }

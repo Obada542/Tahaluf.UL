@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.UL.Core.Common;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 
 namespace Tahaluf.UL.Infra.Repository
@@ -45,11 +46,20 @@ namespace Tahaluf.UL.Infra.Repository
         public bool UpdateStudent(StudentUL student)
         {
             var p = new DynamicParameters();
-            p.Add("StudentId", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("StudentId", student.Login_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("FirstName", student.First_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LastName", student.Last_Name, dbType: DbType.String, direction: ParameterDirection.Input);
             DbContext.Connection.ExecuteAsync("StudentUL_Package.updatestudent", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public StudentLoginDTO GetStudentLoginDetails(int loginid)
+        {
+            var p = new DynamicParameters();
+            p.Add("login", loginid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var student = DbContext.Connection.QueryFirstOrDefault<StudentLoginDTO>("StudentUL_Package.getstudentdata", p, commandType: CommandType.StoredProcedure);
+            return student;
+        }
+
     }
 }
+ 

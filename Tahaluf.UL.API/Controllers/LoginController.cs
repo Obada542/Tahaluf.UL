@@ -60,7 +60,7 @@ namespace Tahaluf.UL.API.Controllers
                 {
                     file.CopyTo(stream);
                 }
-                Loginul Item = new Loginul();
+                Loginul Item = new Loginul(); 
                 Item.Image = fileName;
                 return Item;
             }
