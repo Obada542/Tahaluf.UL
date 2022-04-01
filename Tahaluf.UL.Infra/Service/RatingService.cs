@@ -18,7 +18,10 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _ratingRepository.AddRating(rate);
         }
-
+        public List<Ratingul> GetAllRating()
+        {
+            return _ratingRepository.GetAllRating();
+        }
         public List<Ratingul> GetBookRating(int id)
         {
             return _ratingRepository.GetBookRating(id);

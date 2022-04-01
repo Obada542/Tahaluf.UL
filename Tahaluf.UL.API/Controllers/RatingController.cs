@@ -12,9 +12,9 @@ namespace Tahaluf.UL.API.Controllers
     {
         private readonly IRatingService _ratingService;
         public RatingController(IRatingService _ratingService)
-        {
+        { 
             this._ratingService = _ratingService;
-        }
+        }  
 
         [HttpGet,Route("{id}")]
         [ProducesResponseType(typeof(List<Ratingul>), StatusCodes.Status200OK)]
@@ -22,7 +22,12 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _ratingService.GetBookRating(id);
         }
-
+        [HttpGet]
+        [ProducesResponseType(typeof(List<Ratingul>), StatusCodes.Status200OK)]
+        public List<Ratingul> GetAllRating()
+        { 
+            return _ratingService.GetAllRating();
+        }
         [HttpPost]
         public string AddRating([FromBody] Ratingul rate)
         {

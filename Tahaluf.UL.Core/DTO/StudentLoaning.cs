@@ -14,8 +14,10 @@ namespace Tahaluf.UL.Core.DTO
         public float? Fines { get; set; }
         public float? Price { get; set; }
         public string Image { get; set; }
-        public string Library_name { get; set; }
-        public string Location { get; set; }
+        public string Isloaned { get; set; }
+
+        public string Library_name { get; set; } 
+        public string Location { get; set; } 
         public float? Discount { get; set; }
     }
 }

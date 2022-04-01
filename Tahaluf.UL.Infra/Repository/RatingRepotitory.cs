@@ -28,13 +28,19 @@ namespace Tahaluf.UL.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("r", rate.Rate, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("comment", rate.Review, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("book", rate.Book_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("student", rate.Student_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var rates = _dbContext.Connection.ExecuteAsync("rating_package.addrating", p, commandType: CommandType.StoredProcedure);
             return "Thanks.";
         }
+        public List<Ratingul> GetAllRating()
+        {
+            var rates = _dbContext.Connection.Query<Ratingul>("rating_package.getallrating",  commandType: CommandType.StoredProcedure);
+            return rates.ToList();
+        }
 
-        
+
     }
 }
