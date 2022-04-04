@@ -40,8 +40,8 @@ namespace Tahaluf.UL.Infra.Repository
         public List<RecommentUL> GetAllRecomment(int id)
         {
             var p = new DynamicParameters();
-            p.Add("book", id, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<RecommentUL> result = DbContext.Connection.Query<RecommentUL>("RecommentUL_Package.GetAllRecomment", commandType: CommandType.StoredProcedure);
+            p.Add("book", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<RecommentUL> result = DbContext.Connection.Query<RecommentUL>("recommentul_package.getallrecomment", p ,commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
