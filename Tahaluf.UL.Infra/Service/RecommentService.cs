@@ -23,9 +23,9 @@ namespace Tahaluf.UL.Infra.Service
         {
             return _RecommentRepository.DeleteRecomment(id);
         }
-        public List<RecommentUL> GetAllRecomment()
+        public List<RecommentUL> GetAllRecomment(int id)
         {
-            return _RecommentRepository.GetAllRecomment();
+            return _RecommentRepository.GetAllRecomment(id);
         }
 
         public bool UpdateRecomment(RecommentUL recomment)

@@ -39,9 +39,11 @@ namespace Tahaluf.UL.Infra.Repository
             return true;
 
         }
-        public List<CommentUL> GetAllComment()
+        public List<CommentUL> GetAllComment(int id)
         {
-            IEnumerable<CommentUL> result = DbContext.Connection.Query<CommentUL>("CommentUL_Package.GetAllComment", commandType: CommandType.StoredProcedure);
+            var p = new DynamicParameters();
+            p.Add("bookid", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CommentUL> result = DbContext.Connection.Query<CommentUL>("CommentUL_Package.GetAllComment",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool UpdateComment(CommentUL comment)

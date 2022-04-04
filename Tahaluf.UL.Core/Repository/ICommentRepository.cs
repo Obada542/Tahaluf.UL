@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Repository
 {
     public interface ICommentRepository
     {
-        List<CommentUL> GetAllComment();
+        List<CommentUL> GetAllComment(int id);
         bool CreateComment(CommentUL comment);
         bool UpdateComment(CommentUL comment);
         bool DeleteComment(int id);

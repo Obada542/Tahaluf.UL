@@ -25,9 +25,9 @@ namespace Tahaluf.UL.Infra.Service
             return _commentRepository.DeleteComment(id);
         }
 
-        public List<CommentUL> GetAllComment()
+        public List<CommentUL> GetAllComment(int id)
         {
-            return _commentRepository.GetAllComment();
+            return _commentRepository.GetAllComment(id);
         }
         public bool UpdateComment(CommentUL comment)
         {

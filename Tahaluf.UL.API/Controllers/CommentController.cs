@@ -36,11 +36,11 @@ namespace Tahaluf.UL.API.Controllers
             return commentService.UpdateComment(comment);
         }
 
-        [HttpGet]
+        [HttpGet,Route("{id}")]
         [ProducesResponseType(typeof(List<CommentUL>), StatusCodes.Status200OK)]
-        public List<CommentUL> GetAllComment()
+        public List<CommentUL> GetAllComment(int id)
         {
-            return commentService.GetAllComment();
+            return commentService.GetAllComment(id);
         }
 
     }

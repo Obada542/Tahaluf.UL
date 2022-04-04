@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Service
 {
     public interface ICommentService
     {
-        List<CommentUL> GetAllComment();
+        List<CommentUL> GetAllComment(int id);
         bool CreateComment(CommentUL comment);
         bool UpdateComment(CommentUL comment);
         bool DeleteComment(int id);

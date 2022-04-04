@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Repository
 {
     public interface IRecommentRepository
     {
-        List<RecommentUL> GetAllRecomment();
+        List<RecommentUL> GetAllRecomment(int id);
         bool CreateRecomment(RecommentUL recomment);
         bool UpdateRecomment(RecommentUL recomment);
         bool DeleteRecomment(int id);

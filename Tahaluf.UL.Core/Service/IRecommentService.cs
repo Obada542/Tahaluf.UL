@@ -7,7 +7,7 @@ namespace Tahaluf.UL.Core.Service
 {
     public interface IRecommentService
     {
-        List<RecommentUL> GetAllRecomment();
+        List<RecommentUL> GetAllRecomment(int id);
 
         bool CreateRecomment(RecommentUL recomment);
 
