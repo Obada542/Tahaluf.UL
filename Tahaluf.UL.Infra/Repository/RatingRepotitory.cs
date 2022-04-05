@@ -17,13 +17,13 @@ namespace Tahaluf.UL.Infra.Repository
         {
             this._dbContext = _dbContext;
         }
-        public List<Ratingul> GetBookRating(int id)
+        public List<Ratingul> GetBookRating(int id) 
         {
             var p = new DynamicParameters();
             p.Add("book",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
             var rates = _dbContext.Connection.Query<Ratingul>("rating_package.getbookrating", p,commandType:CommandType.StoredProcedure);
-            return rates.ToList();
-        }
+            return rates.ToList();  
+        }  
         public string AddRating(Ratingul rate)
         {
             var p = new DynamicParameters();

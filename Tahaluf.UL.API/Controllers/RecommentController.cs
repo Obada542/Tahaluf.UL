@@ -37,10 +37,10 @@ namespace Tahaluf.UL.API.Controllers
         }
 
         [HttpGet,Route("{id}")]
-        [ProducesResponseType(typeof(List<RecommentUL>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<RecommentUL>), StatusCodes.Status200OK)] 
         public List<RecommentUL> GetAllRecomment(int id)
         {
-            return recommentService.GetAllRecomment(id);
+            return recommentService.GetAllRecomment(id); 
         }
     }
 }

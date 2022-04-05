@@ -84,7 +84,7 @@ namespace Tahaluf.UL.Infra.Repository
             var books = _dbContext.Connection.Query<Bookul>("BOOKUL_PACKAGE.searchbook", p, commandType: CommandType.StoredProcedure);
             return books.ToList();
         }
-        public Bookul GetBookById(int id)
+        public Bookul GetBookById(int id) 
         {
             var p = new DynamicParameters();
             p.Add("Bookid", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
