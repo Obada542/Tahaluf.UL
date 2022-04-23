@@ -11,5 +11,6 @@ namespace Tahaluf.UL.Core.Repository
         int CreateLogin(Loginul loginul);
         bool UpdateLogin(Loginul loginul);
         string DeleteLogin(int id);
+
     }
 }

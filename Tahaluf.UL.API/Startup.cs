@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tahaluf.UL.Core.Common;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 using Tahaluf.UL.Core.Service;
 using Tahaluf.UL.Infra.Common;
@@ -130,6 +131,7 @@ namespace Tahaluf.UL.API
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKEN"))
     };
 });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

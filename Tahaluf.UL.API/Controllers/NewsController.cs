@@ -37,7 +37,7 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _newsService.UpdateNews(news);
         }
-
+        
         [HttpGet]
         [ProducesResponseType(typeof(List<News>), StatusCodes.Status200OK)]
         public List<News> GetAllNews()
@@ -52,7 +52,9 @@ namespace Tahaluf.UL.API.Controllers
             {
                 var file = Request.Form.Files[0];
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-                var fullPath = Path.Combine(@"C:\Users\obada\Tahaluf.UL.Angular\src\assets\Images", fileName);
+                //var fullPath = Path.Combine(@"C:\\Users\\admin\\Downloads\\Tahaluf.UL.Angular-master\\src\\assets\\adminassets\\images\\", fileName);
+                var fullPath = Path.Combine(@"C:\\Users\\admin\\Downloads\\Tahaluf.UL.angular\\src\\assets\\Images\\", fileName);
+
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
