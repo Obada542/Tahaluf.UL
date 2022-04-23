@@ -13,7 +13,7 @@ namespace Tahaluf.UL.Infra.Repository
     public class TestimonialRepository : ITestimonialRepository
     {
         private readonly IDbContext _dbContext;
-        public TestimonialRepository(IDbContext _dbContext)
+        public TestimonialRepository(IDbContext _dbContext) 
         {
             this._dbContext = _dbContext;
         }

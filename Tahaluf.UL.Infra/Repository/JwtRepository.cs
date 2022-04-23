@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.UL.Core.Common;
 using Tahaluf.UL.Core.Data;
+using Tahaluf.UL.Core.DTO;
 using Tahaluf.UL.Core.Repository;
 
 namespace Tahaluf.UL.Infra.Repository
@@ -18,7 +19,18 @@ namespace Tahaluf.UL.Infra.Repository
         {
             DbContext = _DbContext;
         }
+        public List<LateFeesEmail> SendEmailForLateFees()
+        {
 
+            var result = DbContext.Connection.Query<LateFeesEmail>("loaningul_package.getlatefee", commandType: CommandType.StoredProcedure);
+            if(result.Count() == 0)
+            {
+                return null;
+            }
+            DbContext.Connection.ExecuteAsync("loaningul_package.updateborrowingfines", commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
         public Loginul Auth(Loginul loginul)
         {
             var p = new DynamicParameters();

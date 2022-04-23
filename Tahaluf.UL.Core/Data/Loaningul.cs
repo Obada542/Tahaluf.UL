@@ -18,6 +18,7 @@ namespace Tahaluf.UL.Core.Data
         public int? Student_Id { get; set; }
         public string Book_Name { get; set; }
         public string Student_Name { get; set; }
+        public float? Discount { get; set; }
         public float? Price { get; set; }
     }
 }
