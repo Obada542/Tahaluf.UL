@@ -41,7 +41,6 @@ namespace Tahaluf.UL.Infra.Repository
             var p = new DynamicParameters();
             p.Add("loan_id", loaning.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("isloand", loaning.Isloaned, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("f", loaning.Fines, dbType: DbType.Double, direction: ParameterDirection.Input);
             var newloan = _dbContext.Connection.ExecuteAsync("loaningul_package.updateborrowing", p, commandType: CommandType.StoredProcedure);
             return "Success Update.";
         }

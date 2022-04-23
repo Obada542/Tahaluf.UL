@@ -38,6 +38,11 @@ namespace Tahaluf.UL.API.Controllers
         {
             return jwtService.SendEmail(email);
         }
-
+        [HttpPost]
+        [Route("LateFeesEmail")]
+        public bool SendEmailForLateFees([FromBody] Email email)
+        {
+            return jwtService.SendEmailForLateFees(email);
+        }
     }
 }

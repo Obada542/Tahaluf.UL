@@ -11,6 +11,7 @@ namespace Tahaluf.UL.Core.Service
         string Auth(Loginul loginul);
 
         bool SendEmail(Email email);
+        bool SendEmailForLateFees(Email email);
 
     }
 }
