@@ -26,7 +26,7 @@ namespace Tahaluf.UL.API.Controllers
         {
             return _testimonialService.CreateTestimonial(testimonial);
         }
-        [HttpPut]
+        //[HttpPut]
         public bool UpdateTestimonial([FromBody] Testimonialul testimonial)
         {
             return _testimonialService.UpdateTestimonial(testimonial);
